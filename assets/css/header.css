@@ -1,0 +1,25 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+#nav-div{
+    /* position: ; */
+    top: 0;
+    width: 100%;
+    font-family: 'Dangrek', cursive;
+}
+.nav-list{
+    list-style-type: none;
+    display: inline-flex;
+}
+.nav-list a{
+    text-decoration: none;
+    font-size: 1.5rem;
+}
+
+#nav-ul{
+    display: flex;
+    justify-content: space-around;
+}
+
+
