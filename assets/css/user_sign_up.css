@@ -1,0 +1,262 @@
+*{
+    
+    margin: 0%;
+    padding: 0%;
+}
+
+.bg {
+  /* The image used */
+  /* background-image: url("pexels-pixabay-40784.jpg"); */
+  background-color: black;
+
+  /* Full height */
+  height: 100vh; 
+
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+   display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.signup-label{
+    margin-top: -19px;
+    margin-left: 180px;
+}
+
+.signup-label img{
+    height: 35px;
+    width: 35px;
+    border-radius: 50%;
+    border: 3px solid #ff3d00;
+}
+
+.signupwindow{
+    border: 1px solid white;
+    width: 400px;
+    border-radius: 5px;
+   
+}
+
+.signup-form{
+    color: #ff3d00;
+    font-weight: bold;
+    padding: 120px 80px;
+    position: relative;
+    padding-top: 70px;
+}
+
+.signup-form input[type="text"]{
+    color: black;
+    outline: 0;
+    background: white;
+    border: 0;
+    width:210px;
+    transition: width 1s, top 1s;
+    padding-left: 5px;
+   position: absolute;
+   height: 27px;
+    
+}
+
+.signup-form label{
+    /* position: absolute; */
+    position: relative;
+    font-size: 12px;
+}
+
+
+.signup-form input[type="text"]:focus{
+    height: 27px;
+    font-size: 1.2rem;
+    border-radius: 5px;
+    outline: 2px solid black;
+    outline-offset: -4px;
+
+}
+
+.signup-form button[type="submit"]{
+    border-radius: 30px;
+    color: white;
+    background-color: #ff3d00;
+    width: 75px;
+    border: 1px solid #ff3d00;
+    font-size: 16px;
+    padding: 8px 15px;
+    cursor: pointer;
+    box-shadow: 5px 2px 5px rgb(255, 215, 192);
+    transition: box-shadow 1.2s,  background-color 2s, color 1.5s;
+    position: relative;
+}
+
+.signup-btns{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    
+}
+
+.signup-form button[type="submit"]:hover{
+    background-color: #ff000093;
+    box-shadow: 2px 2px 5px rgb(178, 73, 12);
+    color: #ff3d00;
+}
+
+
+.signup-form button[type="reset"]{
+    z-index: 3;
+    border-radius: 30px;
+    color: white;
+    width: 75px;
+    border: 1px solid #ff3d00;
+    font-size: 16px;
+    padding: 8px 15px;
+    cursor: pointer;
+    box-shadow: 5px 2px 5px rgb(255, 215, 192);
+    transition: box-shadow 1.2s, background-color 2s, color 1.5s;
+    background: #ff3c0043;
+}
+
+.signup-form button[type="reset"]:hover{
+    box-shadow: 2px 2px 5px rgb(178, 73, 12);
+    background: transparent;
+    color: #ff3d00;
+}
+
+#signup-submit span{
+    transform: scale(0);
+    z-index: 1;
+    background-color: #ff3d00;
+    border: 1px solid #ff1876;
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    position: absolute;
+}
+
+#signup-submit span:nth-child(1){
+    top: -20%;
+    left: -10%;
+}
+#signup-submit span:nth-child(2){
+    top: -130%;
+    left: 0%;
+}
+.signup-btns span:nth-child(3){
+    top: -50%;
+    left: 10%;
+    background: transparent;
+}
+.signup-btns span:nth-child(4){
+    top: -66%;
+    left: 20%;
+}
+.signup-btns span:nth-child(5){
+    top: -90%;
+    left: 28%;
+}
+.signup-btns span:nth-child(6){
+    top: -70%;
+    left: 42%;
+}
+.signup-btns span:nth-child(7){
+    top: -80%;
+    left: 60%;
+    background: transparent;
+}
+.signup-btns span:nth-child(8){
+    top: -50%;
+    left: 70%;
+}
+.signup-btns span:nth-child(9){
+    top: -120%;
+    left: 80%;
+}
+.signup-btns span:nth-child(10){
+    top: -70%;
+    left: 90%;
+}
+.signup-btns span:nth-child(11){
+    top: -80%;
+    left: 100%;
+    background: transparent;
+}
+.signup-btns span:nth-child(12){
+    top: -50%;
+    left: 110%;
+}
+.signup-btns span:nth-child(13){
+    top: 40%;
+    left: -20%;
+}
+.signup-btns span:nth-child(14){
+    top: 60%;
+    left: 120%;
+    background: transparent;
+}
+.signup-btns span:nth-child(15){
+    top: 160%;
+    left: -10%;
+}
+.signup-btns span:nth-child(16){
+    top: 120%;
+    left: 5%;
+    background: transparent;
+}
+.signup-btns span:nth-child(17){
+    top: 180%;
+    left: 10%;
+}
+.signup-btns span:nth-child(18){
+    top: 130%;
+    left: 20%;
+}
+.signup-btns span:nth-child(19){
+    top: 180%;
+    left: 55%;
+    background: transparent;
+}
+.signup-btns span:nth-child(20){
+    top: 180%;
+    left: 105%;
+}
+.signup-btns span:nth-child(21){
+    top: 160%;
+    left: 75%;
+}
+.signup-btns span:nth-child(22){
+    top: 130%;
+    left: 88%;
+    background: transparent;
+}
+.btn span:nth-child(23){
+    top: 140%;
+    left: 100%;
+}
+.signup-btns span:nth-child(24){
+    top: 190%;
+    left: 120%;
+}
+
+.signup-anim{
+    animation: signup-moving 1s linear reverse forwards infinite;
+}
+
+@keyframes signup-moving{
+
+    0%{
+        transform: scale(0);
+    }
+
+    10%{
+        transform: scale(1);
+    }
+
+    100%{
+        top: 50%;
+        left: 50%;
+    }
+}

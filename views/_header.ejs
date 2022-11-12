@@ -1,40 +1,128 @@
 <!-- Created on 23/09/2022 12:54 -->
 <!-- Created By : Gaurav & Grishma -->
 
-    <!-- CSS link -->
-    <link rel="stylesheet" href="../assets/css/header_style.css">
+<!-- CSS link -->
+<link rel="stylesheet" href="../css/header.css">
 
-    <!-- Google Font  -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Dangrek&display=swap" rel="stylesheet">
+<!-- Google Font  -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Dangrek&display=swap" rel="stylesheet">
 
-    <!-- ======= Nav Bar start ======= -->
-    <div id="nav-div">
-        <nav id="nav-id">
-            <ul id="nav-ul">
-                <% if(locals.user) { %>
-                    <li class="nav-list" >
-                        <a href="/user/sign-out">Sign Out</a>
-                    </li>
-                    <li class="nav-list" >
-                        <a href="/user/profile"><%= user.name %></a>
-                    </li>
+
+<!-- ======= Nav Bar start ======= -->
+<!-- <div id="nav-div">
+    <nav id="nav-id">
+        <ul id="nav-ul">
+            <% if(locals.user) { %>
+                <li class="nav-list">
+                    <a href="/user/sign-out">Sign Out</a>
+                </li>
+                <li class="nav-list">
+                    <a href="/user/profile">
+                        <%= user.name %>
+                    </a>
+                </li>
                 <% } else {%>
-                    <li class="nav-list" >
+                    <li class="nav-list">
                         <a href="/user/sign-in">Sign In</a>
                     </li>
-                    <li class="nav-list" >
+                    <li class="nav-list">
                         <a href="/user/sign-up">Sign Up</a>
                     </li>
-                <%} %>
+                    <%} %>
+
+                        <li class="nav-list">
+                            <a href="">About Us</a>
+                        </li>
+                        <li class="nav-list">
+                            <a href="">Contact us</a>
+                        </li>
+        </ul>
+    </nav>
+</div> -->
+<!--  Nav Bar End -->
+
+<body>
+    <div class="header">
+        <nav>
+            <div class="logo"><img src="../image/diamondlogo.png" alt="">
+                <h1 style=" float: right; display: inline; ">DIAMOND BOOK</h1>
+            </div>
+
+            <ul class="nav-links">
+                <li>
+                    <a href="#" id="nav-links-home">
+                        <span class="link-home">H</span>
+                        <span class="link-home">o</span>
+                        <span class="link-home">m</span>
+                        <span class="link-home">e</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="" id="nav-links-aboutus">
+                        <span class="link-aboutus">A</span>
+                        <span class="link-aboutus">b</span>
+                        <span class="link-aboutus">o</span>
+                        <span class="link-aboutus">u</span>
+                        <span class="link-aboutus">t</span>
+                        <span class="link-aboutus">u</span>
+                        <span class="link-aboutus">s</span>
+                    </a>
+                </li>
+                <li id="nav-links-news">
+                    <a href="" id="news">
+                        <span class="link-news">N</span>
+                        <span class="link-news">e</span>
+                        <span class="link-news">w</span>
+                        <span class="link-news">s</span>
+                    </a>
+                </li>
+                <li id="nav-links-extra">
+                    <a href="">
+                        <span class="link-extra">E</span>
+                        <span class="link-extra">x</span>
+                        <span class="link-extra">t</span>
+                        <span class="link-extra">r</span>
+                        <span class="link-extra">a</span>
+                    </a>
+                </li>
+                <% if(locals.user) { %>
+                    <li>
+                        <a href="/user/sign-out">Sign Out</a>
+                    </li>
+                    <li >
+                        <a href="/user/profile">
+                            <%= user.name %>
+                        </a>
+                    </li>
+                <% } else { %>
+                    <li>
+                        <button id="signup-btn" class="signup-btn">
+                            Sign up
+                            <% for(var i=0; i<23; i++){ %>
+                                <span class="popups"></span>
+                            <% } %>
+                        </button>
+    
+                    </li>
+                    <li>
+                        <button id="signin-btn" class="signup-btn" onclick="window.location.href='/user/sign-in'">
+                            Sign in
+                            <% for(var i=0; i<23; i++){ %>
+                                <span class="popups"></span>
+                            <% } %>
+                        </button>
+    
+                    </li>
+                <% } %>
                 
-                <li class="nav-list">
-                    <a href="">About Us</a>
-                </li>
-                <li class="nav-list">
-                    <a href="">Contact us</a>
-                </li>
             </ul>
         </nav>
-    </div><!--Nav Bar End-->
+    </div>
+
+</body>
+
+<script src="../javascript/header.js"></script>
+
+
