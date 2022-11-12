@@ -1,8 +1,56 @@
-<h1>sign in page</h1>
+
+<link rel="stylesheet" href="../css/user_sign_in.css">
+
+<body>
+    <!-- <h1>sign in page</h1>
 
 
-<form action="/user/create-session" method="post">
-    <input type="email" name="email" placeholder="Your Email">
-    <input type="password" name="password" placeholder="Password">
-    <input type="submit" name="sign up">
-</form>
+    <form action="/user/create-session" method="post">
+        <input type="email" name="email" placeholder="Your Email">
+        <input type="password" name="password" placeholder="Password">
+        <input type="submit" name="sign up">
+    </form> -->
+
+    <div class="bg">
+        <div class="signinwindow">
+            <h1 class="signin-label"><img src="../image/diamond-png-6.jpg" alt="">
+            </h1>
+            <h1
+                style=" display:flex;justify-content: center;padding: 3px;color: whitesmoke; text-decoration: 1px white underline; padding-top: 30px;">
+                Sign-in</h1>
+            <form action="/user/create-session" method="post" class="signin-form">
+
+                <label for="signinmail" id="signinmail-label">E-mail:</label>
+                <br>
+                <input type="email" id="signinmail" name="email" placeholder="Your Email">
+                <br>
+                <br>
+
+                <label for="signinpass" id="signinpass-label">Password</label>
+                <br>
+
+                <input type="password" id="signinpass" name="password" placeholder="Password">
+                <br>
+                <br><br>
+                <div class="signin-btns" id="signin-btns">
+                    <button type="reset">Cancel</button>
+
+                    <button type="submit" id="signin-submit">Signin
+                        <span></span>
+                        
+                        
+                        <% for (var i=0; i<23; i++){ %>
+                            <span class="signin-submit-span"></span>
+                        <% } %>
+                    </button>
+                </div>
+
+
+            </form>
+
+        </div>
+    </div>
+
+</body>
+
+<script src="../javascript/user_sign_in.js"></script>
