@@ -1,47 +1,11 @@
-<!-- Created on 23/09/2022 12:54 -->
-<!-- Created By : Gaurav & Grishma -->
-
 <!-- CSS link -->
 <link rel="stylesheet" href="../css/header.css">
-
 <!-- Google Font  -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Dangrek&display=swap" rel="stylesheet">
 
-
-<!-- ======= Nav Bar start ======= -->
-<!-- <div id="nav-div">
-    <nav id="nav-id">
-        <ul id="nav-ul">
-            <% if(locals.user) { %>
-                <li class="nav-list">
-                    <a href="/user/sign-out">Sign Out</a>
-                </li>
-                <li class="nav-list">
-                    <a href="/user/profile">
-                        <%= user.name %>
-                    </a>
-                </li>
-                <% } else {%>
-                    <li class="nav-list">
-                        <a href="/user/sign-in">Sign In</a>
-                    </li>
-                    <li class="nav-list">
-                        <a href="/user/sign-up">Sign Up</a>
-                    </li>
-                    <%} %>
-
-                        <li class="nav-list">
-                            <a href="">About Us</a>
-                        </li>
-                        <li class="nav-list">
-                            <a href="">Contact us</a>
-                        </li>
-        </ul>
-    </nav>
-</div> -->
-<!--  Nav Bar End -->
+<!-- ======= Body =======-->
 
 <body>
     <div class="header">
@@ -49,7 +13,6 @@
             <div class="logo"><img src="../image/diamondlogo.png" alt="">
                 <h1 style=" float: right; display: inline; ">DIAMOND BOOK</h1>
             </div>
-
             <ul class="nav-links">
                 <li>
                     <a href="#" id="nav-links-home">
@@ -91,7 +54,7 @@
                     <li>
                         <a href="/user/sign-out">Sign Out</a>
                     </li>
-                    <li >
+                    <li>
                         <a href="/user/profile">
                             <%= user.name %>
                         </a>
@@ -102,27 +65,21 @@
                             Sign up
                             <% for(var i=0; i<23; i++){ %>
                                 <span class="popups"></span>
-                            <% } %>
+                                <% } %>
                         </button>
-    
                     </li>
                     <li>
                         <button id="signin-btn" class="signup-btn" onclick="window.location.href='/user/sign-in'">
                             Sign in
                             <% for(var i=0; i<23; i++){ %>
                                 <span class="popups"></span>
-                            <% } %>
+                                <% } %>
                         </button>
-    
                     </li>
                 <% } %>
-                
             </ul>
         </nav>
     </div>
-
 </body>
-
+<!--======= Script Add =======-->
 <script src="../javascript/header.js"></script>
-
-
