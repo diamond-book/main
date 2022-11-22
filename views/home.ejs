@@ -1,3 +1,44 @@
-<h1>
-    home page
-</h1>
+
+<body>
+    <h1>
+        home page
+    </h1>
+    <% if(locals.user) { %>
+
+        <div>
+            <table>
+                <% var i=1 
+                    for ( employee of employees){ %>
+                <tr>
+                        <td> <%=i %> </td>
+                        <td> <%= employee.name %></td>
+                    
+                </tr>
+                <% i++;
+                    } %>
+            </table>
+        </div>
+
+        <form action="/employee/create" method="post">
+            <input type="text" name="name" placeholder="Enter employee name">
+            <br>
+            <input type="number" name="aadharNo" placeholder="Enter Aadhar number">
+            <br>
+            <input type="number" name="mobileNo" placeholder="Enter Moblie number">
+            <br>
+            <label for=""> Address : </label>
+            <textarea name="address" cols="30" rows="10"></textarea>
+            <br>
+            <select name="typeOfDiamond">
+                <option value="A">A</option>
+                <option value="B">B</option>
+                <option value="C">C</option>
+                <option value="D">D</option>
+            </select>
+            <input type="submit" value="Add">
+        </form>
+
+        
+    <% } %>
+</body>
+

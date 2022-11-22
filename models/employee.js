@@ -6,7 +6,7 @@ const employeeSchema = new mongoose.Schema({
         type : String,
         require : true
     },
-    aadhar: {
+    aadharNo: {
         type : Number,
         require: true,
         unique : true
@@ -15,7 +15,7 @@ const employeeSchema = new mongoose.Schema({
         type : Number,
         require : true
     },
-    adrress : {
+    address : {
         type : String,
         require: true
     },
@@ -31,6 +31,6 @@ const employeeSchema = new mongoose.Schema({
 });
 
 
-const Employee = mongoose.model('User', employeeSchema);
+const Employee = mongoose.model('Employee', employeeSchema);
 
 module.exports = Employee;
