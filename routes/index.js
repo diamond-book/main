@@ -7,7 +7,8 @@ console.log('router loaded');
 
 router.get('/', homecontroller.home);
 
-router.use('/user',require('./user'));
-router.use('/employee',require('./employee'));
+router.use('/user', require('./user'));
+router.use('/employee', require('./employee'));
+router.use('/type-of-diamond', require('./typeOfDiamonds'));
 
 module.exports = router;
