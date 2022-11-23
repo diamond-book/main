@@ -1,24 +1,43 @@
-
 <body>
     <h1>
         home page
     </h1>
     <% if(locals.user) { %>
-
         <div>
             <table>
-                <% var i=1 
-                    for ( employee of employees){ %>
-                <tr>
-                        <td> <%=i %> </td>
-                        <td> <%= employee.name %></td>
-                    
-                </tr>
-                <% i++;
-                    } %>
+                <% var i=1; for ( typeOfDiamond of typeOfDiamonds){ %>
+                    <tr>
+                        <td>
+                            <%=i %>
+                        </td>
+                        <td>
+                            <%= typeOfDiamond.typeOfDiamond %>
+                        </td>
+                    </tr>
+                    <% i++; } %>
             </table>
         </div>
 
+        <form action="/type-of-diamond/create" method="post">
+            <input type="text" name="typeOfDiamond" placeholder="Enter type of Diamond" required>
+            <input type="text" name="price" placeholder="Enter price" required>
+            <input type="submit" value="Add">
+        </form>
+
+        <div>
+            <table>
+                <% var i=1; for ( employee of employees){ %>
+                    <tr>
+                        <td>
+                            <%=i %>
+                        </td>
+                        <td>
+                            <%= employee.name %>
+                        </td>
+                    </tr>
+                    <% i++; } %>
+            </table>
+        </div>
         <form action="/employee/create" method="post">
             <input type="text" name="name" placeholder="Enter employee name">
             <br>
@@ -37,8 +56,5 @@
             </select>
             <input type="submit" value="Add">
         </form>
-
-        
-    <% } %>
+        <% } %>
 </body>
-
