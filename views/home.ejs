@@ -49,10 +49,10 @@
             <textarea name="address" cols="30" rows="10"></textarea>
             <br>
             <select name="typeOfDiamond">
-                <option value="A">A</option>
-                <option value="B">B</option>
-                <option value="C">C</option>
-                <option value="D">D</option>
+                <% for ( typeOfDiamond of typeOfDiamonds){ %>
+
+                <option value="<%= typeOfDiamond.typeOfDiamond %>"><%= typeOfDiamond.typeOfDiamond %></option>
+                <% } %>
             </select>
             <input type="submit" value="Add">
         </form>
