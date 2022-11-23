@@ -1,34 +1,30 @@
 const mongoose = require('mongoose');
 
-const employeeSchema = new mongoose.Schema({
+const entrySchema = new mongoose.Schema({
 
-    name: {
-        type : String,
-        require : true
-    },
-    aadharNo: {
-        type : Number,
-        require: true,
-        unique : true
-    },
-    mobileNo :{
+    noOfDiamonds: {
         type : Number,
         require : true
     },
-    address : {
-        type : String,
+    status: {
+        type : Number,
         require: true
     },
     typeOfDiamond:{
         type : mongoose.Schema.Types.ObjectId,
         ref : 'TypeOfDiamond'
     },
+    employee: {
+        type : mongoose.Schema.Types.ObjectId,
+        ref : 'Employee'
+    },
     user: {
         type : mongoose.Schema.Types.ObjectId,
         ref : 'User'
     } 
 
-},{
+},
+{
     timestamps : true
 });
 

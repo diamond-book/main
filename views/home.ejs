@@ -7,15 +7,18 @@
             <table>
                 <% var i=1; for ( typeOfDiamond of typeOfDiamonds){ %>
                     <tr>
+                        
                         <td>
                             <%=i %>
                         </td>
                         <td>
-                            <%= typeOfDiamond.typeOfDiamond %>
-                        </td>
+                                <a href="/type-of-diamond/?id=<%= typeOfDiamond._id %>&<%=typeOfDiamond.price%>">
+                                <%= typeOfDiamond.typeOfDiamond %>
+                            </a>
+                            </td>
                     </tr>
                     <% i++; } %>
-            </table>
+                </table>
         </div>
 
         <form action="/type-of-diamond/create" method="post">
@@ -51,7 +54,7 @@
             <select name="typeOfDiamond">
                 <% for ( typeOfDiamond of typeOfDiamonds){ %>
 
-                <option value="<%= typeOfDiamond.typeOfDiamond %>"><%= typeOfDiamond.typeOfDiamond %></option>
+                <option value="<%= typeOfDiamond._id %>"><%= typeOfDiamond.typeOfDiamond %></option>
                 <% } %>
             </select>
             <input type="submit" value="Add">

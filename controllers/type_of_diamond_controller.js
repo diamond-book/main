@@ -1,4 +1,6 @@
+const Employee = require('../models/employee');
 const TypeOfDiamond = require('../models/typesOfDiamonds');
+const url = require('url');
 
 module.exports.create = function (req, res) {
     TypeOfDiamond.create({
@@ -9,5 +11,26 @@ module.exports.create = function (req, res) {
         if (err) { console.log("error in create typeOfDiamonds ! ") }
 
         return res.redirect('/');
+    });
+}
+
+
+module.exports.diamondEntries = function (req, res) {
+    if (!req.isAuthenticated()) {
+        return res.render('home', {
+            title: 'Diamond Book | Home'
+        });
+    }
+
+    const id = url.parse(req.url,true).query.id;
+
+    TypeOfDiamond.findById(id, function(err, typeOfDiamond){
+        Employee.find({user : req.user.id, typeOfDiamond : id}, function(err, employees){
+            return res.render('diamonds_entries',{
+                title : 'Diamonds Book | Diamond | Entries',
+                typeOfDiamond : typeOfDiamond,
+                employees : employees
+            });
+        });
     });
 }

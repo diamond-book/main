@@ -1,0 +1,21 @@
+
+<body>
+    <h1>type Of Diamond = <%= typeOfDiamond.typeOfDiamond %></h1>
+    <h1>price = <%= typeOfDiamond.price %></h1>
+
+    <form action="/entry/create">
+        <input type="number" placeholder="enter number of diamonds" required>
+        <input type="hidden" value="" required>
+        <select name="status" required>
+            <option value="1"> completed</option>
+            <option value="0"> uncompleted</option>
+        </select> 
+        <select name="employee" required>
+            <% for(employee of employees){ %>
+                <option value="<%= employee._id %>"> <%= employee.name%></option>
+            <% } %>
+        </select>
+
+        <input type="submit" value="add">
+    </form>
+</body>
