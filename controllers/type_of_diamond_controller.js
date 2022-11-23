@@ -1,6 +1,7 @@
 const Employee = require('../models/employee');
 const TypeOfDiamond = require('../models/typesOfDiamonds');
 const url = require('url');
+const Entry = require('../models/entry');
 
 module.exports.create = function (req, res) {
     TypeOfDiamond.create({
@@ -26,10 +27,13 @@ module.exports.diamondEntries = function (req, res) {
 
     TypeOfDiamond.findById(id, function(err, typeOfDiamond){
         Employee.find({user : req.user.id, typeOfDiamond : id}, function(err, employees){
-            return res.render('diamonds_entries',{
-                title : 'Diamonds Book | Diamond | Entries',
-                typeOfDiamond : typeOfDiamond,
-                employees : employees
+            Entry.find({typeOfDiamond : id}, function(err, entries){
+                return res.render('diamonds_entries',{
+                    title : 'Diamonds Book | Diamond | Entries',
+                    typeOfDiamond : typeOfDiamond,
+                    employees : employees,
+                    entries : entries
+                });
             });
         });
     });

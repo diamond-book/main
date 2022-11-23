@@ -29,6 +29,6 @@ const entrySchema = new mongoose.Schema({
 });
 
 
-const Employee = mongoose.model('Employee', employeeSchema);
+const Entry = mongoose.model('Entry', entrySchema);
 
-module.exports = Employee;
+module.exports = Entry;

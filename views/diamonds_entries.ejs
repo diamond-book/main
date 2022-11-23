@@ -1,19 +1,50 @@
-
 <body>
-    <h1>type Of Diamond = <%= typeOfDiamond.typeOfDiamond %></h1>
-    <h1>price = <%= typeOfDiamond.price %></h1>
+    <h1>type Of Diamond = <%= typeOfDiamond.typeOfDiamond %>
+    </h1>
+    <h1>price = <%= typeOfDiamond.price %>
+    </h1>
 
-    <form action="/entry/create">
-        <input type="number" placeholder="enter number of diamonds" required>
-        <input type="hidden" value="" required>
+
+    <div>
+        <table style="border : 1px solid black">
+            <% for(entry of entries){ %>
+                <tr style="display: flex; justify-content:space-between">
+                    <% for(employee of employees){ if( entry.employee=employee._id){ %>
+                        <td style="margin-left: 10px;">
+                            <%= employee.name %>
+                        </td>
+                        <td style="margin-left: 10px;">
+                            <%= entry.createAt %>
+                        </td>
+                        <td style="margin-left: 10px;">
+                            <%= employee.mobileNo %>
+                        </td>
+                        <td style="margin-left: 10px;">
+                            <%= entry.status %>
+                        </td>
+                        <td style="margin-left: 10px;">
+                            <%= entry.noOfDiamonds %>
+                        </td>
+
+                        <% } } %>
+                </tr>
+                <% } %>
+        </table>
+    </div>
+
+    <form action="/entry/create" method="post">
+        <input type="number" name="noOfDiamonds" placeholder="enter number of diamonds" required>
+        <input type="hidden" name="typeOfDiamond" value="<%= typeOfDiamond._id%>" required>
         <select name="status" required>
             <option value="1"> completed</option>
             <option value="0"> uncompleted</option>
-        </select> 
+        </select>
         <select name="employee" required>
             <% for(employee of employees){ %>
-                <option value="<%= employee._id %>"> <%= employee.name%></option>
-            <% } %>
+                <option value="<%= employee._id %>">
+                    <%= employee.name%>
+                </option>
+                <% } %>
         </select>
 
         <input type="submit" value="add">
