@@ -1,0 +1,16 @@
+.div-container{
+    color: red;
+    background-color: aqua;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100vw;
+    height: 83vh;
+    overflow: hidden;
+    transition: width 0.5s;
+}
+.hide{
+    width: 0px;
+    height: 0px;
+    color: black;
+}
