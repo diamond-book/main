@@ -9,15 +9,14 @@
         <table style="border : 1px solid black">
             <% for(entry of entries){ %>
                 <tr style="display: flex; justify-content:space-between">
-                    <% for(employee of employees){ if( entry.employee=employee._id){ %>
                         <td style="margin-left: 10px;">
-                            <%= employee.name %>
+                            <%= entry.employee.name %>
                         </td>
                         <td style="margin-left: 10px;">
                             <%= entry.createdAt%>
                         </td>
                         <td style="margin-left: 10px;">
-                            <%= employee.mobileNo %>
+                            <%= entry.employee.mobileNo %>
                         </td>
                         <td style="margin-left: 10px;">
                             <%= entry.status %>
@@ -25,8 +24,6 @@
                         <td style="margin-left: 10px;">
                             <%= entry.noOfDiamonds %>
                         </td>
-
-                        <% } } %>
                 </tr>
                 <% } %>
         </table>

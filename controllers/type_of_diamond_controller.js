@@ -27,7 +27,10 @@ module.exports.diamondEntries = function (req, res) {
 
     TypeOfDiamond.findById(id, function(err, typeOfDiamond){
         Employee.find({user : req.user.id, typeOfDiamond : id}, function(err, employees){
-            Entry.find({typeOfDiamond : id}, function(err, entries){
+            Entry.
+            find({typeOfDiamond : id}).
+            populate('employee').
+            exec(function(err, entries){
                 return res.render('diamonds_entries',{
                     title : 'Diamonds Book | Diamond | Entries',
                     typeOfDiamond : typeOfDiamond,
@@ -37,4 +40,7 @@ module.exports.diamondEntries = function (req, res) {
             });
         });
     });
+
+
+
 }
