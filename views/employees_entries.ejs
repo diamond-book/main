@@ -1,0 +1,43 @@
+<body>
+    <h1>Name : <%= employees.name %> </h1>
+    <h1>Aadhar No : <%= employees.aadharNo %> </h1>
+    <h1>Mobile No : <%= employees.mobileNo %> </h1>
+    <h1>Type Of Diamond : <%= typeOfDiamond.typeOfDiamond %> </h1>
+    <h1>Address : <%= employees.address %> </h1>
+    <br>
+    <br>
+    <br>
+    <h1>Entries : </h1>
+
+    <div>
+        <table style="border : 1px solid black">
+            <% for(entry of entries){ %>
+                <tr style="display: flex; justify-content:space-between">
+                        <td style="margin-left: 10px;">
+                            <%= entry.noOfDiamonds %>
+                        </td>
+                        <td style="margin-left: 10px;">
+                            <%= entry.createdAt%>
+                        </td>
+                        <td style="margin-left: 10px;">
+                            <%= entry.status %>
+                        </td>
+                </tr>
+            <% } %>
+        </table>
+    </div>
+
+
+    <form action="/entry/create" method="post">
+        <input type="number" name="noOfDiamonds" placeholder="enter number of diamonds" required>
+        <input type="hidden" name="typeOfDiamond" value="<%= typeOfDiamond._id%>" required>
+        <input type="hidden" name="employee" value="<%= employees._id %>" required>
+        <select name="status" required>
+            <option value="1"> completed</option>
+            <option value="0"> uncompleted</option>
+        </select>
+
+        <input type="submit" value="add">
+    </form>
+        
+</body>

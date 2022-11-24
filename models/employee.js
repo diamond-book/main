@@ -20,14 +20,16 @@ const employeeSchema = new mongoose.Schema({
         require: true
     },
     typeOfDiamond:{
-        type : String,
-        require: true
+        type : mongoose.Schema.Types.ObjectId,
+        ref : 'TypeOfDiamond'
     },
     user: {
         type : mongoose.Schema.Types.ObjectId,
         ref : 'User'
     } 
 
+},{
+    timestamps : true
 });
 
 
