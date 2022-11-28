@@ -1,66 +1,156 @@
+<link rel="stylesheet" href="/css/user_home.css">
+
 <body>
-    <h1>
-        home page
-    </h1>
-    <% if(locals.user) { %>
-        <div>
-            <table>
-                <% var i=1; for ( typeOfDiamond of typeOfDiamonds){ %>
-                    <tr>
+    
+        <% if(locals.user) { %>
+
+                <div class="body" id="body">
+
+                    <h2 class="diamond-type-heading"><i class="fa-solid fa-list-check"></i>DIMOND TYPES:</h2>
+                    <div class="main ">
+
+
+                        <div class="container">
+                            <% var i=1; for ( typeOfDiamond of typeOfDiamonds){ %>
+                            <a href="/type-of-diamond/?id=<%= typeOfDiamond._id %>&<%=typeOfDiamond.price%>">
+                                <div class="outer-hexagon border-anim">
+                                    <div class="inner-hexagon">
+                                        <div class="content-insidehexagon">
+                                            <h3><%= typeOfDiamond.typeOfDiamond %></h3>
+                                            <h5><%= typeOfDiamond.price %></h5>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                            </a>
+                            <% i++; } %>
                         
-                        <td>
-                            <%=i %>
-                        </td>
-                        <td>
-                                <a href="/type-of-diamond/?id=<%= typeOfDiamond._id %>&<%=typeOfDiamond.price%>">
-                                <%= typeOfDiamond.typeOfDiamond %>-
-                                <%= typeOfDiamond.price %>
-                            </a>
-                            </td>
-                    </tr>
-                    <% i++; } %>
-                </table>
-        </div>
+                            <div class="outer-hexagon border-anim">
+                                <div class="inner-hexagon">
+                                    <div class="content-insidehexagon"><button class="plusbutton"><i
+                                                class="fa-regular fa-plus"></i> </button></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
 
-        <form action="/type-of-diamond/create" method="post">
-            <input type="text" name="typeOfDiamond" placeholder="Enter type of Diamond" required>
-            <input type="text" name="price" placeholder="Enter price" required>
-            <input type="submit" value="Add">
-        </form>
+                    <div class="all-employes">
 
-        <div>
-            <table>
-                <% var i=1; for ( employee of employees){ %>
-                    <tr>
-                        <td>
-                            <%=i %>
-                        </td>
-                        <td>
-                            <a href="/employee/?id=<%=employee._id%>">
-                                <%= employee.name %>
-                            </a>
-                        </td>
-                    </tr>
-                    <% i++; } %>
-            </table>
-        </div>
-        <form action="/employee/create" method="post">
-            <input type="text" name="name" placeholder="Enter employee name">
-            <br>
-            <input type="number" name="aadharNo" placeholder="Enter Aadhar number">
-            <br>
-            <input type="number" name="mobileNo" placeholder="Enter Moblie number">
-            <br>
-            <label for=""> Address : </label>
-            <textarea name="address" cols="30" rows="10"></textarea>
-            <br>
-            <select name="typeOfDiamond">
-                <% for ( typeOfDiamond of typeOfDiamonds){ %>
+                        <div class="employes-list">
+                            <h2 class="all-employes-heading"><span><i class="fa-sharp fa-solid fa-list"></i></span> ALL
+                                EMPLOYEES LIST:</h2>
+                            <button class="add-emplyee-button">Add Employees</button>
+                        </div>
 
-                <option value="<%= typeOfDiamond._id %>"><%= typeOfDiamond.typeOfDiamond %></option>
-                <% } %>
-            </select>
-            <input type="submit" value="Add">
-        </form>
-    <% } %>
+                        <table class="all-employes-table">
+                            <tr class="employes-table-header">
+                                <td>Sr no.</td>
+                                <td>Employee name</td>
+                            </tr>
+                            <% var i=1; for ( employee of employees){ %>
+                            <tr class="employes-table-body">
+                                <td class="employes-table-srno"><%=i %></td>
+                                <td class="employes-table-ename"><a href="/employee/?id=<%=employee._id%>"><%= employee.name %></a> </td>
+                            </tr>
+                            <% i++; } %>
+                        </table>
+                    </div>
+                </div>
+
+
+                <div class="add-dimondtype" id="add-dimondtype">
+                    <span class="close-dimondtype"><i class="fa-sharp fa-solid fa-xmark"></i></span>
+
+                    <form action="/type-of-diamond/create" method="post" class="diamondtype-form">
+
+                        <label for="diamond-type-Input">&diams; Enter Diamond Type Here:</label>
+
+                        <input type="text" id="diamond-type-Input" class="diamond-Input" name="typeOfDiamond" required>
+                        <br>
+
+                        <label for="diamond-price-Input">&diams; Enter Diamond Price:</label>
+
+                        <input type="number" id="diamond-price-Input" class="diamond-Input" name="price" required>
+
+                        <div class="diamondtype-buttons">
+                            <button type="reset">Clear</button>
+                            <button type="submit" value="Add" id="add-dimond-submit-button">ADD</button>
+
+                        </div>
+
+                    </form>
+
+                </div>
+
+                <div class="add-Employe" id="add-Employe">
+                    <span class="close-addemploye"><i class="fa-sharp fa-solid fa-xmark"
+                            style="font-size: 22px;"></i></span>
+
+                    <form action="/employee/create" method="post" class="addemploye-form">
+                        <table>
+                            <tr>
+                                <td><label for="addemploye-name-Input">&diams; Enter Employee Name</label></td>
+                                <td>:</td>
+                                <td>
+                                    <input type="text" name="name" id="addemploye-name-Input" class="addemploye-Input" required>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><label for="addemploye-adhar-Input">&diams; Enter Aadhar Number</label></td>
+                                <td>:</td>
+                                <td>
+                                    <input type="number" name="aadharNo" id="addemploye-adhar-Input" class="addemploye-Input" required>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td> <label for="addemploye-mobileno-Input">&diams; Enter Mobile Number</label></td>
+                                <td>:</td>
+                                <td><input type="number" name="mobileNo" id="addemploye-mobileno-Input" class="addemploye-Input"
+                                        required> </td>
+                            </tr>
+
+                            <tr>
+                                <td><label for="emplye-address-Input">&diams; Enter Address</label></td>
+                                <td>:</td>
+                                <td><textarea id="emplye-address-Input" name="address" class="addemploye-Input" rows="3" required
+                                        style=" height:54px;"></textarea></td>
+                            </tr>
+
+                            <tr>
+                                <td><label for="select-dimond-type">&diams; Select type of diamond</label></td>
+                                <td>:</td>
+                                <td>
+
+                                    <select name="typeOfDiamond" id="">
+                                        <% for ( typeOfDiamond of typeOfDiamonds){ %>
+
+                                            <option value="<%= typeOfDiamond._id %>">
+                                                <%= typeOfDiamond.typeOfDiamond %>
+                                            </option>
+                                        <% } %>
+                                    </select>
+                                </td>
+                            </tr>
+                        </table>
+
+
+
+                        <div class="diamondtype-buttons addemplye-buttons ">
+                            <button type="reset">Clear</button>
+                            <button type="submit" value="Add" id="addempolye-submit-button">ADD</button>
+
+                        </div>
+
+                    </form>
+
+                </div>
+        <% } else { %>
+            <h1>
+                home page
+            </h1>
+        <% } %>
+
+        <script src="/javascript/user_home.js"></script>
 </body>
