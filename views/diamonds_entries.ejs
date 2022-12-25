@@ -1,0 +1,278 @@
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+<link rel="stylesheet" href="../css/diamonds_entry.css">
+
+<body>
+    <% let total=0; let completed=0; %>
+        <div id="body" style="position: relative;">
+            <div class="diamond-type-heading">
+                <div class="diamond-type-heading-box">
+                    <div style="cursor: pointer" class="diamond-type-heading-box1">
+                        <div class="diamond-type-heading-box1-dt">
+                            <h1>
+                                <%= typeOfDiamond.typeOfDiamond %>
+                            </h1>
+                        </div>
+                    </div>
+                    <div class="diamond-type-heading-box2"></div>
+
+                    <div class="diamond-type-heading-box3">
+                        <div class="diamond-type-heading-box1-diamond">type</div>
+                    </div>
+                </div>
+                <div class="diamond-type-heading-box">
+                    <div style="cursor: pointer" class="diamond-type-heading-box1">
+                        <div class="diamond-type-heading-box1-dt">
+                            <h1>
+                                <%= typeOfDiamond.price %>
+                            </h1>
+                        </div>
+                    </div>
+                    <div class="diamond-type-heading-box2"></div>
+
+                    <div class="diamond-type-heading-box3">
+                        <div class="diamond-type-heading-box1-diamond">price</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pencile-icon-for-diamond">&#9998;</div>
+
+            <div class="employes-list-of-selected-diamond-type">
+                <div class="employes-list-table-heading">
+                    <h2 class="employes-list-of-selected-diamond-type-heading">
+                        <span><i class="fa-sharp fa-solid fa-list"></i></span> ALL EMPLOYEES
+                        LIST:
+                    </h2>
+                    <button class="add-emplyee-of-selected-diamond-button">
+                        Add Employees
+                    </button>
+                </div>
+
+                <table class="all-employes-of-selected-dimond-type-table">
+                    <tr class="employes-of-selected-dimond-type-table-header">
+                        <td>Sr no.</td>
+                        <td>Employee name</td>
+                        <td>Time</td>
+                        <td>Debeted diamonds</td>
+                        <td>Status</td>
+                        <td>___</td>
+                        <td>___</td>
+                        <td>___</td>
+                    </tr>
+
+<!-----------------------------ENTRY LOOP--------------------------------------------------------------------------------->
+                    <% var i=1; %>
+                        <% for(entry of entries){ %>
+                            <tr>
+                                <td class="employes-selected-diamond-table-srno">
+                                    <%=i %>
+                                        <%i++;%>
+                                </td>
+                                <td class="employes-selected-diamond-table-ename">
+                                    <a href="">
+                                        <%= entry.employee.name %>
+                                    </a>
+                                </td>
+                                <td class="employe-taking-time-of-diamonds">
+                                    <%= entry.createdAt%>
+                                </td>
+                                <td class="employe-total-diamonds">
+                                    <%= entry.noOfDiamonds %>
+                                        <% total +=entry.noOfDiamonds; %>
+                                </td>
+                                <td class="">
+                                    <div class="select-options">
+                                        <select name="" id="" class="select" onchange="saveFunction()">
+                                            <%= entry.status %>
+                                                <% if(entry.status){ %>
+                                                    <option value="1" id="" selected>completed</option>
+                                                    <option value="0">uncompleted</option>
+                                                <%completed +=entry.noOfDiamonds; } else { %>    
+                                                    <option value="0" selected>uncompleted</option>
+                                                    <option value="1" id="">completed</option>
+                                                <% } %>
+                                        </select>
+                                    </div>
+                                </td>
+
+                                <td>
+                                    <button class="save-btn" disabled>Save</button>
+                                </td>
+                                <td>
+                                    <input type="hidden" value="<%=entry.id%>" name="id" class="entryId">
+                                    <button class="pencil-icon-btn" onclick="setId('<%=entry.id%>' , '<%=entry.noOfDiamonds%>' , '<%= entry.status %>')">&#9998;</button></td>
+
+                                <td>
+                                    <button class="delete-icon-btn">
+                                        <a href="/entry/destroy/?id=<%= entry.id%>"><i class="fa-regular fa-trash-can" style="color: white;"></i></a>
+                                    </button>
+
+                                </td>
+                            </tr>
+                            <% } %>
+
+                </table>
+            </div>
+        </div>
+<!------------------CREATE ENTRY----------------------------------------------------------------------------------------------------->
+        <div class="add-Entry-of-employe-for-selected-dimond-type" id="add-Entry-of-employe-for-selected-dimond-type">
+            <span class="close-addemploye-for-selected-diamond-type"><i class="fa-sharp fa-solid fa-xmark"
+                    style="font-size: 22px"></i></span>
+
+            <form action="/entry/create" method="post" class="addemploye-for-selected-diamond-form">
+                <table>
+                    <tr>
+                        <td>
+                            <label for="addemploye-for-selected-diamond-name-Input">&diams; Enter Diamonds</label>
+                        </td>
+                        <td>:</td>
+                        <td>
+                            <input type="number" name="noOfDiamonds" id="addemploye-for-selected-diamond-name-Input"
+                                class="addemploye-for-selected-diamond-Input" required />
+                            <input type="hidden" name="typeOfDiamond" value="<%= typeOfDiamond._id%>" required>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>
+                            <label for="select-status-for-selected-dimond-type">&diams; Select if work is
+                                completed</label>
+                        </td>
+                        <td>:</td>
+                        <td>
+                            <select name="status" id="select-status-for-selected-dimond-type" >
+                                <option value="0">uncompleted</option>
+                                <option value="1">completed</option>
+                            </select>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>
+                            <label for="select-ename-for-selected-dimond-type">&diams; Select name of employee</label>
+                        </td>
+                        <td>:</td>
+                        <td>
+                            <select name="employee" id="select-status-for-selected-dimond-type" required>
+                                <% for(employee of employees){ %>
+                                    <option value="<%= employee.id %>">
+                                        <%= employee.name%>
+                                    </option>
+                                    <% } %>
+                            </select>
+                        </td>
+                    </tr>
+                </table>
+
+                <div class="addemplye-for-selected-diond-type-buttons">
+                    <button type="reset">Clear</button>
+                    <button type="submit" id="addempolye-for-selected-diond-type-submit-button" class="">
+                        ADD
+                    </button>
+                </div>
+            </form>
+        </div>
+
+<!-- ---------------------------UPDATE ENTRY FORM--------------------------------------------------------------------------------------------->
+
+        <div class="add-Entry-of-employe-for-selected-dimond-type pop-up-edit" id="pop-up-edit">
+            <span class="close-addemploye-for-selected-diamond-type pop-up-close"><i class="fa-sharp fa-solid fa-xmark"
+                    style="font-size: 22px"></i></span>
+
+            <form method="post" id="entry-update-form" class="addemploye-for-selected-diamond-form">
+                <table>
+                    <tr>
+                        <td>
+                            <label for="pop-up-edit-input-debated-diamonds">&diams; Debeted Diamonds</label>
+                        </td>
+                        <td>:</td>
+                        <td>
+                            <input name="noOfDiamonds" type="number" id="pop-up-edit-input-debated-diamonds"
+                                class="addemploye-for-selected-diamond-Input" required />
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>
+                            <label for="select-status-for-selected-dimond-type">&diams; Select if work is
+                                completed</label>
+                        </td>
+                        <td>:</td>
+                        <td>
+                            <select name="status" id="selected-entry-status">
+                                <option value="0">uncompleted</option>
+                                <option value="1">completed</option>
+                            </select>
+                        </td>
+                    </tr>
+
+                </table>
+
+                <div class="addemplye-for-selected-diond-type-buttons">
+                    <button type="reset">Clear</button>
+                    <button type="submit" id="edit-pop-up-submit-button1" class="">
+                        Update
+                    </button>
+                </div>
+            </form>
+        </div>
+
+<!-- ------Upadate diamond form---------------------------------------------------------------------------------------------------- -->
+
+        <div class="add-Entry-of-employe-for-selected-dimond-type edit-diomond-type-price" id="edit-dimond-type-price">
+            <span class="close-addemploye-for-selected-diamond-type edit-diamond-pop-up-close"><i
+                    class="fa-sharp fa-solid fa-xmark" style="font-size: 22px"></i></span>
+
+            <form action="/type-of-diamond/update/?id=<%=typeOfDiamond.id%>" method="post"
+                class="addemploye-for-selected-diamond-form">
+                <table>
+                    <tr>
+                        <td>
+                            <label for="pop-up-diamond-name-edit-input-debated-diamonds">&diams; Enter Diamond Type
+                                Here:</label>
+                        </td>
+                        <td>:</td>
+                        <td>
+                            <input type="text" name="typeOfDiamond" value="<%= typeOfDiamond.typeOfDiamond %>"
+                                id="pop-up-diamond-name-edit-input-debated-diamonds"
+                                class="addemploye-for-selected-diamond-Input" required />
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>
+                            <label for="pop-up-diamond-price-edit-input-debated-diamonds">&diams; Enter Diamond
+                                Price:</label>
+                        </td>
+                        <td>:</td>
+                        <td>
+                            <input type="number" name="price" value="<%= typeOfDiamond.price %>"
+                                id="pop-up-diamond-price-edit-input-debated-diamonds"
+                                class="addemploye-for-selected-diamond-Input" required />
+                        </td>
+                    </tr>
+
+                </table>
+
+                <div class="addemplye-for-selected-diond-type-buttons">
+                    <button type="reset">Reset</button>
+                    <button type="submit" id="edit-diamond-type-price-button-pop-up-submit-button" class="">
+                        Update
+                    </button>
+                </div>
+            </form>
+        </div>
+        <script src="../javascript/diamonds_entry.js"></script>
+</body>
+
+
+
+
+
+
+<!-- <h1><a href="/type-of-diamond/destroy/?id=<%=typeOfDiamond.id%>">Delete <%=typeOfDiamond.typeOfDiamond%></a> 
+     todo  -->

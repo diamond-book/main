@@ -3,3 +3,10 @@
 <h1>profile page</h1>
 <p>Name: <%= user.name %> </p>
 <p>Email: <%= user.email %> </p>
+<form action="/user/update/?id=<%=user.id%>" method="post">
+    <input type="text" name="name" value="<%= user.name %>">
+    <input type="email" name="email" value="<%= user.email %>">
+    <input type="submit" value="Update">
+</form>
+
+<h1><a href="/user/destroy/?id=<%=user.id%>">Delete your account</a></h1>

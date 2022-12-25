@@ -26,17 +26,17 @@ let signInMail=document.getElementById("signinmail");
             signInPassLabel.style.top="0px";
         });
 
-        let btn=document.getElementById("signin-submit");
-        let spans=document.getElementsByClassName("signin-submit-span");
+        let siginbtn=document.getElementById("signin-submit");
+        let siginspans=document.getElementsByClassName("signin-submit-span");
         var span;
-        btn.onmouseover= function(){
-            for(span of spans){
+        siginbtn.onmouseover= function(){
+            for(span of siginspans){
                 span.classList.add("signin-anim");
             }
         }
 
-        btn.onmouseleave= function(){
-            for(span of spans){
+        siginbtn.onmouseleave= function(){
+            for(span of siginspans){
                 span.classList.remove("signin-anim");
             }
         }
