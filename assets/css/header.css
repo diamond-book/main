@@ -1,301 +1,303 @@
-/* *{
-    margin: 0;
-    padding: 0;
-}
-#nav-div{
-    top: 0;
-    width: 100%;
-    font-family: 'Dangrek', cursive;
-}
-.nav-list{
-    list-style-type: none;
-    display: inline-flex;
-}
-.nav-list a{
-    text-decoration: none;
-    font-size: 1.5rem;
+* {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+  box-sizing: border-box;
 }
 
-#nav-ul{
-    display: flex;
-    justify-content: space-around;
-} */
+.header {
+  width: 100%;
+  padding: 0 8%;
+  background: #080008;
+  position: relative;
+}
+
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  width: 140px;
+  display: inline-flex;
+  padding-top: 2%;
+}
+
+.logo img {
+  width: 100px;
+}
+
+.nav-links {
+  padding: 28px 0;
+}
+
+.nav-links li {
+  display: inline-block;
+  margin: 0 15px;
+}
+
+.nav-links li a {
+  text-decoration: none;
+  color: #fff;
+  padding: 5px 0;
+  position: relative;
+  letter-spacing: 0.1rem;
+}
 
 
 
+.nav-links li a::after {
+  content: "";
+  background: #ff3d00;
+  width: 0%;
+  height: 2px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  transition: width 1s;
+}
+
+.nav-links li a:hover::after {
+  width: 100%;
+}
+
+.nav-links li a:active::after {
+  width: 100%;
+}
 
 
+.nav-links li a:focus::after, a:visited::after, a:hover{
+  width: 100%;
+}
 
 
- * {
-    margin: 0;
-    padding: 0;
-    font-family: sans-serif;
-    box-sizing: border-box;
+.signup-btn {
+  background: #ff3d00;
+  color: #fff;
+  padding: 10px 30px;
+  border-radius: 0.7rem;
+  cursor: pointer;
+  position: relative;
+  border: 1px solid #ff3d00;
+  box-shadow: 0 2px 25px rgba(255, 25, 0, 0.5);
+  transition: box-shadow 0.25s;
+}
+
+
+.signup-btn:active {
+  background: #ff4000;
+  box-shadow: 0 2px 25px rgba(255, 140, 0, 0.549);
+}
+
+.signup-btn span {
+  transform: scale(0);
+  z-index: 0;
+  background-color: #ff3d00;
+  border: 1px solid #ff3d00;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  position: absolute;
+}
+
+.signup-btn span:nth-child(1) {
+  top: -0%;
+  left: -10%;
+}
+
+.signup-btn span:nth-child(2) {
+  top: -130%;
+  left: 0%;
+}
+
+.signup-btn span:nth-child(3) {
+  top: -50%;
+  left: 10%;
+  background: transparent;
+}
+
+.signup-btn span:nth-child(4) {
+  top: -66%;
+  left: 20%;
+}
+
+.signup-btn span:nth-child(5) {
+  top: -90%;
+  left: 28%;
+}
+
+.signup-btn span:nth-child(6) {
+  top: -70%;
+  left: 42%;
+}
+
+.signup-btn span:nth-child(7) {
+  top: -80%;
+  left: 60%;
+  background: transparent;
+}
+
+.signup-btn span:nth-child(8) {
+  top: -50%;
+  left: 70%;
+}
+
+.signup-btn span:nth-child(9) {
+  top: -120%;
+  left: 80%;
+}
+
+.signup-btn span:nth-child(10) {
+  top: -70%;
+  left: 90%;
+}
+
+.signup-btn span:nth-child(11) {
+  top: -80%;
+  left: 100%;
+  background: transparent;
+}
+
+.signup-btn span:nth-child(12) {
+  top: -50%;
+  left: 110%;
+}
+
+.signup-btn span:nth-child(13) {
+  top: 40%;
+  left: -20%;
+}
+
+.signup-btn span:nth-child(14) {
+  top: 60%;
+  left: 120%;
+  background: transparent;
+}
+
+.signup-btn span:nth-child(15) {
+  top: 160%;
+  left: -10%;
+}
+
+.signup-btn span:nth-child(16) {
+  top: 120%;
+  left: 5%;
+  background: transparent;
+}
+
+.signup-btn span:nth-child(17) {
+  top: 180%;
+  left: 10%;
+}
+
+.signup-btn span:nth-child(18) {
+  top: 130%;
+  left: 20%;
+}
+
+.signup-btn span:nth-child(19) {
+  top: 180%;
+  left: 55%;
+  background: transparent;
+}
+
+.signup-btn span:nth-child(20) {
+  top: 180%;
+  left: 105%;
+}
+
+.signup-btn span:nth-child(21) {
+  top: 160%;
+  left: 75%;
+}
+
+.signup-btn span:nth-child(22) {
+  top: 130%;
+  left: 88%;
+  background: transparent;
+}
+
+.signup-btn span:nth-child(23) {
+  top: 140%;
+  left: 100%;
+}
+
+.signup-btn span:nth-child(24) {
+  top: 190%;
+  left: 120%;
+}
+
+
+.signup-btn-anim {
+  animation: moving 0.5s linear reverse forwards;
+}
+
+@keyframes moving {
+
+  0% {
+    transform: scale(0);
   }
-  
-  .header {
-    width: 100%;
-    padding: 0 8%;
-    background: #080008;
-    position: relative;
+
+  10% {
+    transform: scale(1);
   }
-  
-  nav {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+
+  100% {
+    top: 50%;
+    left: 50%;
   }
-  
-  .logo {
-    width: 140px;
-    display: inline-flex;
-    padding-top: 2%;
+}
+
+.logo h1 {
+  color: transparent;
+  padding-top: 5%;
+  -webkit-text-stroke: 1px #fff;
+  background: url("../image/back.png");
+  background-size: 95px;
+  -webkit-background-clip: text;
+  background-position: 0 0;
+  animation: back 80s linear infinite;
+}
+
+@keyframes back {
+  100% {
+    background-position: 2000px 0;
   }
-  
-  .logo img {
-    width: 100px;
+}
+
+.bouncer {
+  position: relative;
+  display: inline-block;
+  animation: bounce 0.2s ease infinite alternate;
+}
+
+a span:nth-child(2) {
+  animation-delay: 0.1s;
+}
+
+a span:nth-child(3) {
+  animation-delay: 0.2s;
+}
+
+a span:nth-child(4) {
+  animation-delay: 0.3s;
+}
+
+a span:nth-child(5) {
+  animation-delay: 0.4s;
+}
+
+a span:nth-child(6) {
+  animation-delay: 0.1s;
+}
+
+a span:nth-child(7) {
+  animation-delay: 0.2s;
+}
+
+@keyframes bounce {
+  100% {
+    top: -10px;
   }
-  
-  .nav-links {
-    padding: 28px 0;
-  }
-  
-  .nav-links li {
-    display: inline-block;
-    margin: 0 15px;
-  }
-  
-  .nav-links li a {
-    text-decoration: none;
-    color: #fff;
-    padding: 5px 0;
-    position: relative;
-    letter-spacing: 0.1rem;
-  }
-  
-  .nav-links li a::after {
-    content: "";
-    background: #ff3d00;
-    width: 0%;
-    height: 2px;
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    transition: width 1s;
-  }
-  
-  .nav-links li a:hover::after {
-    width: 100%;
-  }
-  
-  .nav-links li a:active::after {
-    width: 100%;
-  }
-  
-  .signup-btn {
-    background: #ff3d00;
-    color: #fff;
-    padding: 10px 30px;
-    border-radius: 0.7rem;
-    cursor: pointer;
-    position: relative;
-    border:1px solid #ff3d00;
-    box-shadow: 0 2px 25px rgba(255, 25, 0, 0.5);
-      transition: box-shadow 0.25s;
-  }
-  
-  
-  .signup-btn:active{
-      background: #ff4000;
-      box-shadow: 0 2px 25px rgba(255, 140, 0, 0.549);
-  }
-  
-  .signup-btn span{
-      transform: scale(0);
-      z-index: 0;
-      background-color: #ff3d00;
-      border: 1px solid #ff3d00;
-      width: 7px;
-      height: 7px;
-      border-radius: 50%;
-      position: absolute;
-  }
-  
-  
-  .signup-btn span:nth-child(1){
-      top: -0%;
-      left: -10%;
-  }
-  .signup-btn span:nth-child(2){
-      top: -130%;
-      left: 0%;
-  }
-  .signup-btn span:nth-child(3){
-      top: -50%;
-      left: 10%;
-      background: transparent;
-  }
-  .signup-btn span:nth-child(4){
-      top: -66%;
-      left: 20%;
-  }
-  .signup-btn span:nth-child(5){
-      top: -90%;
-      left: 28%;
-  }
-  .signup-btn span:nth-child(6){
-      top: -70%;
-      left: 42%;
-  }
-  .signup-btn span:nth-child(7){
-      top: -80%;
-      left: 60%;
-      background: transparent;
-  }
-  .signup-btn span:nth-child(8){
-      top: -50%;
-      left: 70%;
-  }
-  .signup-btn span:nth-child(9){
-      top: -120%;
-      left: 80%;
-  }
-  .signup-btn span:nth-child(10){
-      top: -70%;
-      left: 90%;
-  }
-  .signup-btn span:nth-child(11){
-      top: -80%;
-      left: 100%;
-      background: transparent;
-  }
-  .signup-btn span:nth-child(12){
-      top: -50%;
-      left: 110%;
-  }
-  .signup-btn span:nth-child(13){
-      top: 40%;
-      left: -20%;
-  }
-  .signup-btn span:nth-child(14){
-      top: 60%;
-      left: 120%;
-      background: transparent;
-  }
-  .signup-btn span:nth-child(15){
-      top: 160%;
-      left: -10%;
-  }
-  .signup-btn span:nth-child(16){
-      top: 120%;
-      left: 5%;
-      background: transparent;
-  }
-  .signup-btn span:nth-child(17){
-      top: 180%;
-      left: 10%;
-  }
-  .signup-btn span:nth-child(18){
-      top: 130%;
-      left: 20%;
-  }
-  .signup-btn span:nth-child(19){
-      top: 180%;
-      left: 55%;
-      background: transparent;
-  }
-  .signup-btn span:nth-child(20){
-      top: 180%;
-      left: 105%;
-  }
-  .signup-btn span:nth-child(21){
-      top: 160%;
-      left: 75%;
-  }
-  .signup-btn span:nth-child(22){
-      top: 130%;
-      left: 88%;
-      background: transparent;
-  }
-  .signup-btn span:nth-child(23){
-      top: 140%;
-      left: 100%;
-  }
-  .signup-btn span:nth-child(24){
-      top: 190%;
-      left: 120%;
-  }
-  
-  
-  .signup-btn-anim{
-      animation: moving 0.5s linear reverse forwards;
-  }
-  
-  @keyframes moving{
-  
-      0%{
-          transform: scale(0);
-      }
-  
-      10%{
-          transform: scale(1);
-      }
-  
-      100%{
-          top: 50%;
-          left: 50%;
-      }
-  }
-  
-  
-  .logo h1 {
-    color: transparent;
-    padding-top: 5%;
-    -webkit-text-stroke: 1px #fff;
-    background: url("../image/back.png");
-    background-size: 95px;
-    -webkit-background-clip: text;
-    background-position: 0 0;
-    animation: back 80s linear infinite;
-  }
-  
-  @keyframes back {
-    100% {
-      background-position: 2000px 0;
-    }
-  }
-  
-  .bouncer {
-    position: relative;
-    display: inline-block;
-    animation: bounce 0.2s ease infinite alternate;
-  }
-  
-  a span:nth-child(2) {
-    animation-delay: 0.1s;
-  }
-  a span:nth-child(3) {
-    animation-delay: 0.2s;
-  }
-  a span:nth-child(4) {
-    animation-delay: 0.3s;
-  }
-  
-  a span:nth-child(5) {
-    animation-delay: 0.4s;
-  }
-  
-  a span:nth-child(6) {
-    animation-delay: 0.1s;
-  }
-  a span:nth-child(7) {
-    animation-delay: 0.2s;
-  }
-  
-  @keyframes bounce {
-    100% {
-      top: -10px;
-    }
-  }
-  
+}
