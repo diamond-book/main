@@ -8,7 +8,7 @@
 .header {
   width: 100%;
   padding: 0 8%;
-  background: #080008;
+  background: #080008 !important;
   position: relative;
 }
 
