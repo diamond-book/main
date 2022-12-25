@@ -1,185 +1,329 @@
-
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
 <link rel="stylesheet" href="/css/user_home.css">
 
 <body>
-    
-        <% if(locals.user) { %>
 
-                <div class="body" id="body">
-
-                    <h2 class="diamond-type-heading"><i class="fa-solid fa-list-check"></i>DIMOND TYPES:</h2>
-                    <div class="main ">
+    <% if(locals.user) { %>
+        <div class="body" id="body">
+            <h2 class="diamond-type-heading"><i class="fa-solid fa-list-check"></i>DIMOND TYPES:</h2>
+            <div class="main ">
 
 
-                        <div class="container">
-                            <% var i=1; for ( typeOfDiamond of typeOfDiamonds){ %>
-                            <a href="/type-of-diamond/?id=<%= typeOfDiamond._id %>&<%=typeOfDiamond.price%>">
-                                <div class="outer-hexagon border-anim">
-                                    <div class="inner-hexagon">
-                                        <div class="content-insidehexagon">
-                                            <h3><%= typeOfDiamond.typeOfDiamond %></h3>
-                                            <h5><%= typeOfDiamond.price %></h5>
-                                        </div>
+                <div class="container">
+                    <% var i=1; for ( typeOfDiamond of typeOfDiamonds){ %>
+                        <a href="/type-of-diamond/?id=<%= typeOfDiamond._id %>&<%=typeOfDiamond.price%>">
+                            <div class="outer-hexagon border-anim">
+                                <div class="inner-hexagon">
+                                    <div class="content-insidehexagon">
+                                        <h3>
+                                            <%= typeOfDiamond.typeOfDiamond %>
+                                        </h3>
+                                        <h5>
+                                            <%= typeOfDiamond.price %>
+                                        </h5>
                                     </div>
-
                                 </div>
 
-                            </a>
-                            <% i++; } %>
-                        
+                            </div>
+
+                        </a>
+                        <% i++; } %>
+
                             <div class="outer-hexagon border-anim">
                                 <div class="inner-hexagon">
                                     <div class="content-insidehexagon"><button class="plusbutton"><i
                                                 class="fa-regular fa-plus"></i> </button></div>
                                 </div>
                             </div>
-                        </div>
-                    </div>
+                </div>
+            </div>
 
-                    <div class="all-employes">
+            <div class="all-employes">
 
-                        <div class="employes-list">
-                            <h2 class="all-employes-heading"><span><i class="fa-sharp fa-solid fa-list"></i></span> ALL
-                                EMPLOYEES LIST:</h2>
-                            <button class="add-emplyee-button">Add Employees</button>
-                        </div>
-
-                        <table class="all-employes-table">
-                            <tr class="employes-table-header">
-                                <td>Sr no.</td>
-                                <td>Employee name</td>
-                            </tr>
-                            <% var i=1; for ( employee of employees){ %>
-                            <tr class="employes-table-body">
-                                <td class="employes-table-srno"><%=i %></td>
-                                <td class="employes-table-ename"><a href="/employee/?id=<%=employee._id%>"><%= employee.name %></a> </td>
-                            </tr>
-                            <% i++; } %>
-                        </table>
-                    </div>
+                <div class="employes-list">
+                    <h2 class="all-employes-heading"><span><i class="fa-sharp fa-solid fa-list"></i></span> ALL
+                        EMPLOYEES LIST:</h2>
+                    <button class="add-emplyee-button">Add Employees</button>
                 </div>
 
+                <table class="all-employes-table">
+                    <tr class="employes-table-header">
+                        <td>Sr no.</td>
+                        <td>Employee name</td>
+                    </tr>
+                    <% var i=1; for ( employee of employees){ %>
+                        <tr class="employes-table-body">
+                            <td class="employes-table-srno">
+                                <%=i %>
+                            </td>
+                            <td class="employes-table-ename"><a href="/employee/?id=<%=employee._id%>">
+                                    <%= employee.name %>
+                                </a> </td>
+                        </tr>
+                        <% i++; } %>
+                </table>
+            </div>
+        </div>
 
-                <div class="add-dimondtype" id="add-dimondtype">
-                    <span class="close-dimondtype"><i class="fa-sharp fa-solid fa-xmark"></i></span>
 
-                    <form action="/type-of-diamond/create" method="post" class="diamondtype-form">
+        <div class="add-dimondtype" id="add-dimondtype">
+            <span class="close-dimondtype"><i class="fa-sharp fa-solid fa-xmark"></i></span>
 
-                        <label for="diamond-type-Input">&diams; Enter Diamond Type Here:</label>
+            <form action="/type-of-diamond/create" method="post" class="diamondtype-form">
 
-                        <input type="text" id="diamond-type-Input" class="diamond-Input" name="typeOfDiamond" required>
-                        <br>
+                <label for="diamond-type-Input">&diams; Enter Diamond Type Here:</label>
 
-                        <label for="diamond-price-Input">&diams; Enter Diamond Price:</label>
+                <input type="text" id="diamond-type-Input" class="diamond-Input" name="typeOfDiamond" required>
+                <br>
 
-                        <input type="number" id="diamond-price-Input" class="diamond-Input" name="price" required>
+                <label for="diamond-price-Input">&diams; Enter Diamond Price:</label>
 
-                        <div class="diamondtype-buttons">
-                            <button type="reset">Clear</button>
-                            <button type="submit" value="Add" id="add-dimond-submit-button">ADD</button>
+                <input type="number" id="diamond-price-Input" class="diamond-Input" name="price" required>
 
-                        </div>
+                <div class="diamondtype-buttons">
+                    <button type="reset">Clear</button>
+                    <button type="submit" value="Add" id="add-dimond-submit-button">ADD</button>
 
-                    </form>
+                </div>
+
+            </form>
+
+        </div>
+
+        <div class="add-Employe" id="add-Employe">
+            <span class="close-addemploye"><i class="fa-sharp fa-solid fa-xmark" style="font-size: 22px;"></i></span>
+
+            <form action="/employee/create" method="post" class="addemploye-form">
+                <table>
+                    <tr>
+                        <td><label for="addemploye-name-Input">&diams; Enter Employee Name</label></td>
+                        <td>:</td>
+                        <td>
+                            <input type="text" name="name" id="addemploye-name-Input" class="addemploye-Input" required>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><label for="addemploye-adhar-Input">&diams; Enter Aadhar Number</label></td>
+                        <td>:</td>
+                        <td>
+                            <input type="number" name="aadharNo" id="addemploye-adhar-Input" class="addemploye-Input"
+                                required>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td> <label for="addemploye-mobileno-Input">&diams; Enter Mobile Number</label></td>
+                        <td>:</td>
+                        <td><input type="number" name="mobileNo" id="addemploye-mobileno-Input" class="addemploye-Input"
+                                required> </td>
+                    </tr>
+
+                    <tr>
+                        <td><label for="emplye-address-Input">&diams; Enter Address</label></td>
+                        <td>:</td>
+                        <td><textarea id="emplye-address-Input" name="address" class="addemploye-Input" rows="3"
+                                required style=" height:54px;"></textarea></td>
+                    </tr>
+
+                    <tr>
+                        <td><label for="select-dimond-type">&diams; Select type of diamond</label></td>
+                        <td>:</td>
+                        <td>
+
+                            <select name="typeOfDiamond" id="">
+                                <% for ( typeOfDiamond of typeOfDiamonds){ %>
+
+                                    <option value="<%= typeOfDiamond._id %>">
+                                        <%= typeOfDiamond.typeOfDiamond %>
+                                    </option>
+                                    <% } %>
+                            </select>
+                        </td>
+                    </tr>
+                </table>
+
+
+
+                <div class="diamondtype-buttons addemplye-buttons ">
+                    <button type="reset">Clear</button>
+                    <button type="submit" value="Add" id="addempolye-submit-button">ADD</button>
 
                 </div>
 
-                <div class="add-Employe" id="add-Employe">
-                    <span class="close-addemploye"><i class="fa-sharp fa-solid fa-xmark"
-                            style="font-size: 22px;"></i></span>
-
-                    <form action="/employee/create" method="post" class="addemploye-form">
-                        <table>
-                            <tr>
-                                <td><label for="addemploye-name-Input">&diams; Enter Employee Name</label></td>
-                                <td>:</td>
-                                <td>
-                                    <input type="text" name="name" id="addemploye-name-Input" class="addemploye-Input" required>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td><label for="addemploye-adhar-Input">&diams; Enter Aadhar Number</label></td>
-                                <td>:</td>
-                                <td>
-                                    <input type="number" name="aadharNo" id="addemploye-adhar-Input" class="addemploye-Input" required>
-                                </td>
-                            </tr>
-
-                            <tr>
-                                <td> <label for="addemploye-mobileno-Input">&diams; Enter Mobile Number</label></td>
-                                <td>:</td>
-                                <td><input type="number" name="mobileNo" id="addemploye-mobileno-Input" class="addemploye-Input"
-                                        required> </td>
-                            </tr>
-
-                            <tr>
-                                <td><label for="emplye-address-Input">&diams; Enter Address</label></td>
-                                <td>:</td>
-                                <td><textarea id="emplye-address-Input" name="address" class="addemploye-Input" rows="3" required
-                                        style=" height:54px;"></textarea></td>
-                            </tr>
-
-                            <tr>
-                                <td><label for="select-dimond-type">&diams; Select type of diamond</label></td>
-                                <td>:</td>
-                                <td>
-
-                                    <select name="typeOfDiamond" id="">
-                                        <% for ( typeOfDiamond of typeOfDiamonds){ %>
-
-                                            <option value="<%= typeOfDiamond._id %>">
-                                                <%= typeOfDiamond.typeOfDiamond %>
-                                            </option>
-                                        <% } %>
-                                    </select>
-                                </td>
-                            </tr>
-                        </table>
-
-
-
-                        <div class="diamondtype-buttons addemplye-buttons ">
-                            <button type="reset">Clear</button>
-                            <button type="submit" value="Add" id="addempolye-submit-button">ADD</button>
-
-                        </div>
-
-                    </form>
-
-                </div>
+            </form>
+        </div>
         <% } else { %>
             <div id="carouselExampleIndicators" class="carousel slide" data-bs-keyboard="true">
-        <div class="carousel-indicators">
-          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
-          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
-          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="3" aria-label="Slide 4"></button>
-        </div>
-        <div class="carousel-inner">
-          <div class="carousel-item active slide-container back1">
-            <div id="slide-div1"></div>
-          </div>
-          <div class="carousel-item slide-container back2">
-            <div id="slide-div2"></div>
-          </div>
-          <div class="carousel-item slide-container back3">
-            <div id="slide-div3"></div>
-          </div>
-          <div class="carousel-item slide-container back4">
-            <div id="slide-div4"></div>
-          </div>
-        </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Previous</span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Next</span>
-        </button>
-      </div>
-        <% } %>
+                <div class="carousel-indicators">
+                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0"
+                        class="active" aria-current="true" aria-label="Slide 1"></button>
+                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
+                        aria-label="Slide 2"></button>
+                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"
+                        aria-label="Slide 3"></button>
+                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="3"
+                        aria-label="Slide 4"></button>
+                </div>
+                <div class="carousel-inner">
+                    <div class="carousel-item active slide-container back1">
+                        <div id="slide-div1">
+                            <div id="about-para">
+                                <p>
+                                <h1>
+                                    Hello Diamonds Managers,
+                                </h1>
+                                <h2>
+                                    Here You are Calculate Your Employee salary Easily without using any pen,paper;
+                                </h2>
+                                <h3>
+                                    That is so useful for you
+                                    I am your partner
+                                </h3>
 
-        <script src="/javascript/user_home.js"></script>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item slide-container back2">
+                        <div id="slide-div2">
+                            <div id="about-para">
+                                <p>
+                                    Lorem Ipsum is simply dummy text of the printing and <span
+                                        class="text-highlight">typesetting
+                                        industry</span>. Lorem Ipsum has been the industry's standard <span
+                                        class="text-highlight">dummy
+                                        text ever</span> since the 1500s, when an unknown printer took a galley of type
+                                    and scrambled it
+                                    to make a type specimen book. It has survived not only five centuries, but also the
+                                    leap into
+                                    electronic typesetting, remaining essentially unchanged. It was popularised in the
+                                    1960s <span class="text-highlight">with the release of Letraset</span> sheets
+                                    containing Lorem Ipsum.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item slide-container back3">
+                        <div id="slide-div3">
+                            <div class="outer" style="margin-top: 5rem;">
+                                <div class="inner"> <img src="../image/home1.jpg" alt="">
+                                    <a
+                                        href="https://retail.economictimes.indiatimes.com/news/apparel-fashion/jewellery/china-lockdowns-hit-lab-grown-diamond-output/93604891">China
+                                        lockdowns hit lab-grown diamond output</a>
+                                </div>
+                                <div class="inner"> <img src="../image/home2.jpg" alt="">
+                                    <a href="https://www.statista.com/topics/1704/diamond-industry/">Diamond industry -
+                                        statistics & facts</a>
+                                </div>
+                                <div class="inner"> <img src="../image/home3.jpg" alt="">
+                                    <a
+                                        href="https://economictimes.indiatimes.com/markets/expert-view/what-is-the-best-way-to-bet-on-the-next-multi-billion-dollar-capex-theme-hiren-ved-answers/articleshow/96483356.cms">What
+                                        is the best way to bet on the next multi-billion dollar capex theme?
+                                        Hiren Ved answers</a>
+                                </div>
+                                <div class="inner"> <img alt="" src="../image/home4.jpg">
+                                    <a href="https://www.grandviewresearch.com/industry-analysis/diamond-market">
+                                        Diamond Market Size, Share & Trends Analysis Report By Product (Natural,
+                                        Synthetic), By Application (Jewelry &
+                                        Ornaments, Industrial), By Region, And Segment Forecasts, 2020 - 2030</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item slide-container back4">
+                        <div id="slide-div4" style="display:flex;">
+                            <div class="card">
+                                <img src="../image/home1.jpg" alt="John" style="width:100%">
+                                <h1>John Doe</h1>
+                                <p class="title">CEO & Founder, Example</p>
+                                <p>Harvard University</p>
+                                <p><button>Contact</button></p>
+                            </div>
+                            <div class="card">
+                                <img src="../image/home1.jpg" alt="John" style="width:100%">
+                                <h1>John Doe</h1>
+                                <p class="title">CEO & Founder, Example</p>
+                                <p>Harvard University</p>
+                                <p><button>Contact</button></p>
+                            </div>
+                            <div class="card">
+                                <img src="../image/home1.jpg" alt="John" style="width:100%">
+                                <h1>John Doe</h1>
+                                <p class="title">CEO & Founder, Example</p>
+                                <p>Harvard University</p>
+                                <p><button>Contact</button></p>
+                            </div>
+                            <div class="card">
+                                <img src="../image/home1.jpg" alt="John" style="width:100%">
+                                <h1>John Doe</h1>
+                                <p class="title">CEO & Founder, Example</p>
+                                <p>Harvard University</p>
+                                <p><button>Contact</button></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
+                    data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
+                    data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button> -->
+            </div>
+            <% } %>
+                <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+                <script src="../javascript/user_home.js"></script>
 </body>
+
+<!--
+                                style=" width:95%;margin: auto; display:flex;flex-wrap: wrap; justify-content: space-between;">
+                            <div class="profile" id="profile">
+                                <a href="#">
+                                    <img class="photo1" src="../image/home1.jpg" alt="">
+                                    <div class="img-bg"></div>
+                                    <div class="info" style="display: inline-block;">
+                                        <span></span>
+                                        <h1>Reema</h1>
+                                        <p>hello</p>hello
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="profile" id="profile" style="margin-left: 10px;">
+                                <a href="#">
+                                    <img class="photo1" src="../image/home1.jpg" alt="">
+                                    <div class="img-bg"></div>
+                                    <div class="info" style="display: inline-block;">
+                                        <span></span>
+                                        <h1>Reema</h1>
+                                        <p>hello</p>hello
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="profile" id="profile" style="margin-left: 10px;">
+                                <a href="#">
+                                    <img class="photo1" src="../image/home1.jpg" alt="">
+                                    <div class="img-bg"></div>
+                                    <div class="info" style="display: inline-block;">
+                                        <span></span>
+                                        <h1>Reema</h1>
+                                        <p>hello</p>hello
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="profile" id="profile">
+                                <a href="#">
+                                    <img class="photo1" src="../image/home1.jpg" alt="">
+                                    <div class="img-bg"></div>
+                                    <div class="info" style="display: inline-block;">
+                                        <span></span>
+                                        <h1>Reema</h1>
+                                        <p>hello</p>hello
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+-->
