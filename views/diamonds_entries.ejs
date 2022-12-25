@@ -4,6 +4,11 @@
         </h1>
         <h1>price = <%= typeOfDiamond.price %>
         </h1>
+        <form action="/type-of-diamond/update/?id=<%=typeOfDiamond.id%>" method="post">
+            <input type="text" name="typeOfDiamond" value="<%= typeOfDiamond.typeOfDiamond %>">
+            <input type="number" name="price" value="<%= typeOfDiamond.price %>">
+            <input type="submit" value="Update">
+        </form>
         <h1><a href="/type-of-diamond/destroy/?id=<%=typeOfDiamond.id%>">Delete <%=typeOfDiamond.typeOfDiamond%></a></h1>
         <div>
             <h1>total Diamonds : <%=total%>
@@ -38,9 +43,8 @@
                     <th>Time</th>
                     <th>status</th>
                     <th>given diamonds</th>
-                    <th>
-
-                    </th>
+                    <th></th>
+                    <th></th>
                 </tr>
                 <% var i=1; %>
                     <% for(entry of entries){ %>
@@ -66,11 +70,12 @@
                             <td>
                                 <a href="/entry/destroy/?id=<%= entry.id%>">delete</a>
                             </td>
+                            <td>
+                                <a href="/entry/update/?id=<%= entry.id%>">update</a>
+                            </td>
                         </tr>
                         <% } %>
             </table>
-
-
         </div>
 
 

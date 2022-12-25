@@ -24,3 +24,11 @@ module.exports.destroy = function (req, res) {
         return res.redirect('back');
     });
 }
+
+module.exports.update = function (req, res) {
+    const id = url.parse(req.url, true).query.id;
+    
+    Entry.findByIdAndUpdate(id, req.body, function (err, entry) {
+        return res.redirect('back');
+    });
+}
