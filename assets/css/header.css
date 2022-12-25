@@ -45,7 +45,32 @@ nav {
   letter-spacing: 0.1rem;
 }
 
+.logo {
+  width: 140px;
+  display: inline-flex;
+  padding-top: 2%;
+}
 
+.logo img {
+  width: 7rem;
+}
+
+.nav-links {
+  padding: 1.2rem 0;
+}
+
+.nav-links li {
+  display: inline-block;
+  margin: 0 15px;
+}
+
+.nav-links li a {
+  text-decoration: none;
+  color: #fff;
+  padding: 5px 0;
+  position: relative;
+  letter-spacing: 0.1rem;
+}
 
 .nav-links li a::after {
   content: "";
@@ -66,10 +91,10 @@ nav {
   width: 100%;
 }
 
-
 .nav-links li a:focus::after, a:visited::after, a:hover{
   width: 100%;
 }
+
 
 
 .signup-btn {

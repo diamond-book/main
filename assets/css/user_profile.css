@@ -1,0 +1,41 @@
+body {
+    background-color: #080008;
+}
+
+h1 {
+    color: white;
+    text-align: center;
+}
+
+#container {
+    font-size: 2rem;
+    text-align: center;
+    margin: auto;
+    width: 60%;
+    background-color: #080008;
+    color: white;
+    margin-top: 11%;
+}
+
+#name {
+    margin-top: 30px;
+}
+
+#link {
+    margin-top: 30px;
+}
+
+#email {
+    margin-top: 30px;
+}
+
+
+#link2 {
+    margin-top: 30px;
+    color: white;
+}
+
+#link {
+    font-size: 1.7rem;
+    color: white;
+}

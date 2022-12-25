@@ -20,7 +20,7 @@ const typeOfDiamondSchema = new mongoose.Schema({
 }, { timestamps: true });
 
 typeOfDiamondSchema.index(
-    {typeOfDiamond: 1, user: 1, price: 1 },
+    { typeOfDiamond: 1, user: 1, price: 1 },
     { unique: true }
 );
 
