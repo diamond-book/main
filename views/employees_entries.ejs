@@ -1,112 +1,285 @@
+<link rel="stylesheet" href="../css/employee_entries.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+
+<!-------new body------------------------------------------------------------------------------------------------------------------------>
+
 <body>
     <% let total=0; let completed=0; %>
-        <h1>Name : <%= employees.name %>
-        </h1>
-        <h1>Aadhar No : <%= employees.aadharNo %>
-        </h1>
-        <h1>Mobile No : <%= employees.mobileNo %>
-        </h1>
-        <h1>Type Of Diamond : <%= typeOfDiamond.typeOfDiamond %>
-        </h1>
-        <h1>Address : <%= employees.address %>
-        </h1>
+        <div id="body">
+            <div class="full-screen">
 
-        <form action="/employee/update/?id=<%= employees.id%>" method="post">
-            <table>
-                <tr>
-                    <td><label for="addemploye-name-Input">&diams; Enter Employee Name</label></td>
-                    <td>:</td>
-                    <td>
-                        <input type="text" name="name" value="<%= employees.name %>" id="addemploye-name-Input"
-                            class="addemploye-Input" required>
-                    </td>
-                </tr>
-                <tr>
-                    <td><label for="addemploye-adhar-Input">&diams; Enter Aadhar Number</label></td>
-                    <td>:</td>
-                    <td>
-                        <input type="number" name="aadharNo" value="<%= employees.aadharNo %>"
-                            id="addemploye-adhar-Input" class="addemploye-Input" required>
-                    </td>
-                </tr>
+                <div class="employee-full-info">
+                    <!-------Employee Info--------------------------------------------------------------------------------->
+                    <h1>Employee Info.</h1>
+                    <div class="employee-information">
+                        <img src="../image/dummy-profile-pic.png" alt="" class="employee-image">
+                        <button class="pencil-icon-for-edit-employee-info" onclick="window.location.href = '/employee/destroy/?id=<%=employees.id%>'">&#9998;</button>
+                        <button class="delete-icon-btn-employee-info"><i class="fa-regular fa-trash-can"></i>
+                        </button>
+                        <div class="employee-details">
 
-                <tr>
-                    <td> <label for="addemploye-mobileno-Input">&diams; Enter Mobile Number</label></td>
-                    <td>:</td>
-                    <td><input type="number" name="mobileNo" value="<%= employees.mobileNo %>"
-                            id="addemploye-mobileno-Input" class="addemploye-Input" required> </td>
-                </tr>
+                            <table>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>:</td>
+                                    <td>
+                                        <%= employees.name %>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Mobile no</td>
+                                    <td>:</td>
+                                    <td>
+                                        <%= employees.mobileNo %>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Aadhar no</td>
+                                    <td>:</td>
+                                    <td>
+                                        <%= employees.aadharNo %>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Diomond Type</td>
+                                    <td>:</td>
+                                    <td>
+                                        <%= typeOfDiamond.typeOfDiamond %>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Address</td>
+                                    <td>:</td>
+                                    <td>
+                                        <%= employees.address %>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Total Given Diamonds</td>
+                                    <td>:</td>
+                                    <td>
+                                        <%=total%>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Total Completed Diamonds</td>
+                                    <td>:</td>
+                                    <td>
+                                        <%=completed%>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>salary</td>
+                                    <td>:</td>
+                                    <td>
+                                        <%=completed*typeOfDiamond.price%>
+                                    </td>
+                                </tr>
+                            </table>
 
-                <tr>
-                    <td><label for="emplye-address-Input">&diams; Enter Address</label></td>
-                    <td>:</td>
-                    <td><textarea id="emplye-address-Input" name="address" class="addemploye-Input" rows="3" required
-                            style=" height:54px;"><%= employees.address %></textarea></td>
-                </tr>
-            </table>
+                        </div>
 
+                    </div>
 
+                </div>
+                <div class="employee-diamond-info">
+                    <div class="diamond-list-of-employee">
 
-            <div class="diamondtype-buttons addemplye-buttons ">
-                <button type="submit" value="Add" id="addempolye-submit-button">Update</button>
+                        <div class="diamond-list-table-heading">
+                            <h2 class="diamond-list-of-employee-heading"><span><i
+                                        class="fa-sharp fa-solid fa-list"></i></span> ALL ENTRIES LIST:</h2>
+                            <button class="add-diamond-list-of-employee-button">Add Entry</button>
+                        </div>
+
+                        <table class="diamond-list-of-employee-table">
+                            <tr class="diamond-list-of-employee-table-header">
+                                <td>Sr no.</td>
+                                <td>Given Diamonds</td>
+                                <td>Time</td>
+                                <td>Status</td>
+                                <td>___</td>
+                                <td>___</td>
+                                <td>___</td>
+                            </tr>
+<!-----------------Entry display Loop--------------------------------------------------------------------------------------------->
+                            <% var i=1 %>
+                                <% for(entry of entries){ %>
+                                    <tr>
+                                        <td class="employes-selected-diamond-table-srno">
+                                            <%=i%>
+                                                <% i++; %>
+                                        </td>
+                                        <td class="employes-selected-diamond-table-ename"><a href="">
+                                                <%= entry.noOfDiamonds %>
+                                                    <% total +=entry.noOfDiamonds; %>
+                                            </a> </td>
+                                        <td class="employe-taking-time-of-diamonds"></td>
+                                        <td class="">
+                                            <div class="select-options-status-employee">
+                                                <select name="" id="" class="select-status-employee"
+                                                    onchange="saveFunction2()">
+                                                    <% if(entry.status){ %>
+                                                        <option value="1" id="" selected>completed</option>
+                                                        <option value="0">uncompleted</option>
+                                                    <%completed +=entry.noOfDiamonds; } else { %>
+                                                        <option value="0" selected>uncompleted</option>
+                                                        <option value="1" id="">completed</option>
+                                                    <% } %>
+
+                                                </select>
+                                            </div>
+                                        </td>
+
+                                        <td>
+                                            <button class="save-btn-employee" disabled>Save</button>
+                                        </td>
+                                        <td><button class="pencil-icon-btn-employee" onclick="setId('<%=entry.id%>' , '<%=entry.noOfDiamonds%>' , '<%= entry.status %>')">&#9998;</button></td>
+
+                                        <td>
+                                            <button class="delete-icon-btn-employee" onclick="window.location.href='/entry/destroy/?id=<%= entry.id %>'">
+                                                <i class="fa-regular fa-trash-can"></i>
+                                            </button>
+                                        </td>
+                                    </tr>
+                            <% } %>
+                        </table>
+                    </div>
+
+                </div>
+
             </div>
-        </form>
-        <h1><a href="/employee/destroy/?id=<%= employees.id%>">Delete employee</a></h1>
-
-        <h1>total Diamonds : <%=total%>
-        </h1>
-        <h1>total completed Diamonds : <%=completed%>
-        </h1>
-        <h1>salary : <%=completed*typeOfDiamond.price%>
-        </h1>
-        <h1>Entries : </h1>
-
-        <div>
-            <table border="1">
-                <tr>
-                    <th>Sr No.</th>
-                    <th>Given diamonds</th>
-                    <th>Time</th>
-                    <th>status</th>
-                    <th></th>
-                    <th></th>
-                </tr>
-                <% var i=1 %>
-                    <% for(entry of entries){ %>
-                        <tr>
-                            <td>
-                                <%=i%>
-                                    <% i++; %>
-                            </td>
-                            <td style="margin-left: 10px;">
-                                <%= entry.noOfDiamonds %>
-                                    <% total +=entry.noOfDiamonds; %>
-                            </td>
-                            <td style="margin-left: 10px;">
-                                <%= entry.createdAt%>
-                            </td>
-                            <td style="margin-left: 10px;">
-                                <%= entry.status %>
-                                    <% if(entry.status){ completed +=entry.noOfDiamonds; } %>
-                            </td>
-                            <td><a href="/entry/destroy/?id=<%= entry.id %>">Delete</a></td>
-                            <td><a href="/entry/update/?id=<%= entry.id %>">Update</a></td>
-                        </tr>
-                        <% } %>
-            </table>
         </div>
 
+        <!-------------------------Entry create------------------------------------------------------------------------------------------------->
 
-        <form action="/entry/create" method="post">
-            <input type="number" name="noOfDiamonds" placeholder="enter number of diamonds" required>
-            <input type="hidden" name="typeOfDiamond" value="<%= typeOfDiamond._id%>" required>
-            <input type="hidden" name="employee" value="<%= employees._id %>" required>
-            <select name="status" required>
-                <option value="1"> completed</option>
-                <option value="0"> uncompleted</option>
-            </select>
+        <div class="add-Entry-of-diamond-type" id="add-Entry-of-employe-for-selected-dimond-type">
+            <span class="close-add-Entry-of-diamond-type"><i class="fa-sharp fa-solid fa-xmark"
+                    style="font-size: 22px;"></i></span>
 
-            <input type="submit" value="add">
-        </form>
+            <form action="/entry/create" method="post" class="add-dimond-type-form">
+                <table>
+                    <tr>
+                        <td><label for="add-dimond-type-form-Input">&diams; Enter No. of Diamonds</label></td>
+                        <td>:</td>
+                        <td><input type="number" name="noOfDiamonds" id="add-dimond-type-form-Input" class="add-dimond-type-form-Input"
+                                required>
+                            <input type="hidden" name="typeOfDiamond" value="<%= typeOfDiamond._id%>" required>
+                            <input type="hidden" name="employee" value="<%= employees._id %>" required></td>
+                    </tr>
 
+
+                    <tr>
+                        <td><label for="select-status-of-diamond">&diams; Select if work is completed</label></td>
+                        <td>:</td>
+                        <td>
+
+                            <select name="status" id="select-status-of-diamond">
+                                <option value="1"> completed</option>
+                                <option value="0"> uncompleted</option>
+                            </select>
+                        </td>
+                    </tr>
+
+                </table>
+
+
+
+                <div class=" add-dimond-of-emplyee-type-buttons ">
+                    <button type="reset">Clear</button>
+                    <button type="submit" id="add-dimond-of-emplyee-type-submit-button" class="">ADD</button>
+
+                </div>
+
+            </form>
+
+        </div>
+
+        <!-----------------------------------update entry--------------------------------------------------------->
+
+        <div class="add-Entry-of-diamond-type edit-pop-up-employee" id="edit-pop-up-employee">
+            <span class="close-add-Entry-of-diamond-type edit-employee-pop-up-close"><i
+                    class="fa-sharp fa-solid fa-xmark" style="font-size: 22px;"></i></span>
+
+            <form method="post" id="entry-update-form"  class="add-dimond-type-form">
+                <table>
+                    <tr>
+                        <td><label for="add-no-of-diamond-edit">&diams; Enter No. of Diamonds</label></td>
+                        <td>:</td>
+                        <td><input type="number" name="noOfDiamonds" id="add-no-of-diamond-edit" class="add-dimond-type-form-Input"
+                                required></td>
+                    </tr>
+
+
+                    <tr>
+                        <td><label for="select-status-of-diamond-edit">&diams; Select if work is completed</label></td>
+                        <td>:</td>
+                        <td>
+
+                            <select  name="status" id="selected-entry-status">
+                                <option value="0">uncompleted</option>
+                                <option value="1">completed</option>
+                            </select>
+                        </td>
+                    </tr>
+
+                </table>
+
+                <div class=" add-dimond-of-emplyee-type-buttons ">
+                    <button type="reset">Clear</button>
+                    <button type="submit" id="edit-employee-pop-up-submit-button" class="">update</button>
+
+                </div>
+
+            </form>
+
+        </div>
+
+        <!----------------------------------update employee--------------------------------------------------------------->
+
+        <div class="add-Entry-of-diamond-type edit-pop-up-employee edit-Employe-info" id="edit-Employe-info">
+            <span class="close-add-Entry-of-diamond-type close-edit-employe"><i class="fa-sharp fa-solid fa-xmark"
+                    style="font-size: 22px;"></i></span>
+
+            <form action="/employee/update/?id=<%= employees.id%>" method="post" class="add-dimond-type-form">
+                <table>
+                    <tr>
+                        <td><label for="edit-employe-name-Input">&diams; Employee Name</label></td>
+                        <td>:</td>
+                        <td><input type="text" name="name" value="<%= employees.name %>" id="edit-employe-name-Input" class="edit-employe-Input" required></td>
+                    </tr>
+                    <tr>
+                        <td><label for="edit-employe-adhar-Input">&diams; Enter Aadhar Number</label></td>
+                        <td>:</td>
+                        <td><input type="number" name="aadharNo" value="<%= employees.aadharNo %>" id="edit-employe-adhar-Input" class="edit-employe-Input" required></td>
+                    </tr>
+
+                    <tr>
+                        <td> <label for="edit-employe-mobileno-Input">&diams; Enter Mobile Number</label></td>
+                        <td>:</td>
+                        <td><input type="number" name="mobileNo" value="<%= employees.mobileNo %>" id="edit-employe-mobileno-Input" class="edit-employe-Input" required>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td><label for="edit-emplye-address-Input">&diams; Enter Address</label></td>
+                        <td>:</td>
+                        <td><textarea id="edit-emplye-address-Input" class="edit-employe-Input" rows="3" required
+                                style=" height:54px;"><%= employees.address %></textarea></td>
+                    </tr>
+                </table>
+
+
+
+                <div class="add-dimond-of-emplyee-type-buttons ">
+                    <button type="reset">Clear</button>
+                    <button type="submit" id="edit-empolye-info-submit-button">ADD</button>
+
+                </div>
+
+            </form>
+
+        </div>
+
+        <script src="../javascript/employee_entries.js"></script>
 </body>
