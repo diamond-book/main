@@ -8,7 +8,7 @@
 .header {
   width: 100%;
   padding: 0 8%;
-  background: #080008;
+  background: #080008 !important;
   position: relative;
 }
 
@@ -24,12 +24,13 @@ nav {
   padding-top: 2%;
 }
 
+
 .logo img {
-  width: 100px !important;
+  width: 8.5rem;
 }
 
 .nav-links {
-  padding: 28px 0;
+  padding: 1.2rem 0;
 }
 
 .nav-links li {
@@ -64,12 +65,10 @@ nav {
   width: 100%;
 }
 
-
-.nav-links li a:focus::after,
-a:visited::after,
-a:hover {
+.nav-links li a:focus::after, a:visited::after, a:hover{
   width: 100%;
 }
+
 
 
 .signup-btn {

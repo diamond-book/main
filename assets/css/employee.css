@@ -1,0 +1,384 @@
+@import url('https://fonts.googleapis.com/css2?family=Abel&family=Arima:wght@100&family=Kanit:wght@200&family=Lobster&family=Overpass:wght@100&display=swap');
+
+
+* {
+    margin: 0px;
+    padding: 0px;
+    font-family: 'Kanit', sans-serif;
+}
+
+.body {
+    display: flex;
+    justify-content: center;
+}
+
+.full-screen {
+    position: relative;
+
+}
+
+
+.employee-diamond-info {
+    width: 55vw;
+    height: 70vh;
+    background-color: #080008;
+    margin-top: 5%;
+    opacity: 0.5;
+    position: relative;
+    cursor: pointer;
+    /* filter: blur(1px); */
+    transition: all 2s;
+    overflow: scroll;
+
+}
+
+
+.employee-diamond-info:hover {
+    z-index: 5 !important;
+    opacity: 0.999;
+    position: relative;
+    filter: blur(0px);
+    cursor: pointer;
+}
+
+
+.diamond-list-of-employee {
+    margin: 20px 20px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin: 50px;
+}
+
+
+.diamond-list-table-heading {
+    width: 90%;
+    display: flex;
+    justify-content: space-between;
+}
+
+
+.diamond-list-of-employee-heading {
+    width: 100%;
+
+    margin: 3px auto;
+    margin-bottom: 20px;
+    color: #f62c04;
+    text-decoration: 2px underline rgb(210, 45, 73);
+    text-decoration-line: underline;
+    text-decoration-color: rgb(33, 112, 182);
+    /* text-shadow: 1px 3px 5px #ff7614; */
+    text-decoration-style: double;
+}
+
+
+
+.add-diamond-list-of-employee-button {
+    justify-content: space-evenly;
+    align-items: center;
+    border-radius: 5px;
+    color: white;
+    background-color: #ff3d00;
+    border: 1px solid #ff3d00;
+    font-size: 16px;
+    padding: 5px 25px;
+    cursor: pointer;
+    box-shadow: 5px 2px 5px rgb(255, 215, 192);
+    position: relative;
+    padding-left: 5px;
+    flex-wrap: wrap;
+    flex-direction: column;
+    overflow: hidden;
+    width: 200px;
+    padding-right: 5px;
+    transition: all 1.5s;
+    margin-top: 10px;
+    display: inline;
+    height: 30px;
+}
+
+.add-diamond-list-of-employee-button:hover {
+    background-color: #e1a1a14f;
+    box-shadow: 2px 2px 5px rgb(178, 73, 12);
+    color: #ff3d00;
+    border-radius: 20px;
+    border-width: 3px;
+    outline: 1px solid white;
+    outline-offset: -1px;
+}
+
+.add-diamond-list-of-employee-button:hover:after {
+    content: "→";
+
+}
+
+.diamond-list-of-employee-table {
+    /* margin-left: 12%; */
+    /* border: 1px solid white; */
+    width: 90%;
+    height: 100%;
+    border-collapse: collapse;
+    /* border-radius: 30px; */
+    margin-top: 40px;
+    /* text-align: center; */
+    border-style: hidden;
+    /*hide standard table (collapsed) border
+    /* box-shadow: 0 0 0 1px white; this draws the table border   */
+}
+
+.diamond-list-of-employee-table tr {
+    border-radius: 30px;
+    border: 1px solid rgba(255, 255, 255, 0.536);
+}
+
+
+.diamond-list-of-employee-table td {
+    /* border: 1px solid rgba(255, 255, 255, 0.536); */
+    color: white;
+    text-align: center;
+    padding: 10px 0px;
+    font-size: 18px;
+    padding-left: 5px;
+}
+
+.diamond-list-of-employee-table tr:last-child {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.536);
+}
+
+.diamond-list-of-employee-table td a {
+    color: white;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.5s;
+}
+
+.diamond-list-of-employee-table td a:hover {
+    color: #f62c04;
+    text-decoration: 1px underline;
+}
+
+.diamond-list-of-employee-table-header {
+    margin-bottom: 2px;
+}
+
+.diamond-list-of-employee-table-header td {
+    text-align: center;
+    color: #f62c04;
+    font-weight: bold;
+    font-size: 20px;
+    text-transform: uppercase;
+    padding: 20px auto;
+    margin-bottom: 20px;
+}
+
+/* 
+.all-employes-of-selected-dimond-type-table td:nth-child(1){
+  text-align: center;
+  width: 80px;
+} */
+
+.employee-full-info {
+    width: 55vw;
+    height: 70vh;
+    background-color: gainsboro;
+    transition: all 2s;
+    position: absolute;
+    top: 35%;
+    left: 25%;
+
+}
+
+
+
+
+.employee-information {
+    margin-top: 20px;
+    padding: 5%;
+
+}
+
+.employee-image {
+    width: 100px;
+    height: 100px;
+    float: right;
+}
+
+.employee-details span {
+    background: transparent;
+    border: 0px;
+    color: #f62c04;
+}
+
+.add-Entry-of-diamond-type {
+    display: none;
+    background-color: white;
+    border: 2px solid #f62c04;
+    position: fixed;
+    z-index: 5;
+    width: 450px;
+    height: 320px;
+    left: calc(100%/2 - 450px/2);
+    top: calc(100%/2 - 320px/2);
+    text-align: center;
+}
+
+.add-Entry-of-diamond-type table {
+    border-spacing: 20px;
+
+}
+
+.add-Entry-of-diamond-type td {
+    text-align: left;
+}
+
+.add-Entry-of-diamond-type td:nth-child(2) {
+    font-weight: bolder;
+    font-size: 20px;
+    margin: 2px;
+
+}
+
+.select-dimond-type {
+    text-align: left;
+}
+
+.close-add-Entry-of-diamond-type {
+    color: rgba(115, 104, 104, 0.782);
+    cursor: pointer;
+    position: relative;
+    width: 15px;
+    margin-left: calc(100% - 38px/2);
+}
+
+
+
+.close-add-Entry-of-diamond-type:hover {
+    color: rgb(0, 0, 0);
+}
+
+
+.add-dimond-type-form {
+    color: #ff3d00;
+    font-weight: bold;
+    position: relative;
+    margin: 7px;
+    margin-top: 10px;
+
+}
+
+
+.add-dimond-type-form-Input {
+    color: black;
+    outline: 0;
+    background: rgba(21, 68, 180, 0.283);
+    border: 0;
+    width: 210px;
+    transition: width 1s, top 1s;
+    padding-left: 5px;
+    /* position: absolute; */
+    height: 27px;
+}
+
+.add-dimond-type-form-Input:focus {
+    height: 27px;
+    font-size: 1.2rem;
+    border-radius: 5px;
+    outline: 2px solid black;
+    outline-offset: -4px;
+}
+
+
+
+/*     
+.add-emplyee-of-selected-diamond-button{
+    justify-content: space-evenly;
+    align-items: center;
+  border-radius: 5px;
+    color: white;
+    background-color: #ff3d00;
+    border: 1px solid #ff3d00;
+    font-size: 16px;
+    padding: 5px 25px;
+    cursor: pointer;
+    box-shadow: 5px 2px 5px rgb(255, 215, 192);
+    position: relative;
+ padding-left: 5px;
+ flex-wrap: wrap;
+ flex-direction: column;
+ overflow: hidden;
+ width: 200px;
+  padding-right: 5px;
+  transition: all 2s;
+  margin-top: 10px;
+  display: inline;
+  height: 30px;
+}
+
+.add-emplyee-of-selected-diamond-button:hover{
+  background-color: #e1a1a14f;
+    box-shadow: 2px 2px 5px rgb(178, 73, 12);
+    color: #ff3d00;
+    border-radius: 20px;
+  border-width: 3px;
+  outline: 1px solid white;
+  outline-offset: -1px;
+}
+
+.add-emplyee-of-selected-diamond-button:hover:after{
+  content: "→";
+  
+} */
+
+.add-dimond-of-emplyee-type-buttons {
+    margin-top: 15px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 10px;
+    border-radius: 5px;
+
+}
+
+.add-dimond-of-emplyee-type-buttons button[type="submit"] {
+    color: white;
+    border-radius: 5px;
+    background-color: #ff3d00;
+    border: 1px solid #ff3d00;
+    /* width: 75px; */
+    font-size: 16px;
+    padding: 5px 25px;
+    /* text-align: center; */
+    cursor: pointer;
+    box-shadow: 5px 2px 5px rgb(255, 215, 192);
+    transition: box-shadow 1.2s, background-color 1s, color 0.8s, border-radius 1s;
+    position: relative;
+}
+
+.add-dimond-of-emplyee-type-buttons button[type="submit"]:hover {
+    background-color: #e1a1a14f;
+    box-shadow: 2px 2px 5px rgb(178, 73, 12);
+    color: #ff3d00;
+    border-radius: 20px;
+}
+
+.add-dimond-of-emplyee-type-buttons button[type="reset"] {
+    z-index: 3;
+    border-radius: 5px;
+    color: white;
+    /* width: 75px; */
+    border: 1px solid #ff3d00;
+    font-size: 16px;
+    padding: 5px 20px;
+    cursor: pointer;
+    box-shadow: 5px 2px 5px rgb(255, 215, 192);
+    transition: box-shadow 1.2s, background-color 1s, color 0.8s, border-radius 1s;
+    background: #ff3c0067;
+}
+
+
+.add-dimond-of-emplyee-type-buttons button[type="reset"]:hover {
+    box-shadow: 2px 2px 5px rgb(178, 73, 12);
+    background: transparent;
+    border-radius: 30px;
+    color: #ff3d00;
+}
