@@ -1,17 +1,176 @@
-.slide-container{
+.slide-container {
     background-color: #2b6262;
     width: 100vw !important;
     height: 79vh;
 }
-.back1{
-    background-image: url('../image/home1.jpg');
+
+.card {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    max-width: 300px;
+    margin: auto;
+    text-align: center;
 }
-.back2{
-    background-image: url('../image/home2.jpg');
+
+.title {
+    color: grey;
+    font-size: 18px;
 }
-.back3{
-    background-image: url('../image/home3.jpg');
+
+button {
+    border: none;
+    outline: 0;
+    display: inline-block;
+    padding: 8px;
+    color: white;
+    background-color: #000;
+    text-align: center;
+    cursor: pointer;
+    width: 100%;
+    font-size: 18px;
 }
-.back4{
-    background-image: url('../image/home4.jpg');
+
+a {
+    text-decoration: none;
+    font-size: 22px;
+    color: black;
+}
+
+.outer {
+    margin: auto;
+    width: 85%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.inner {
+    width: 24.82%;
+    padding: 7px;
+}
+
+.inner img {
+    width: 100%;
+}
+
+.inner a {
+    text-decoration: none;
+    font-size: 1.1rem;
+    color: white;
+    width: 100%;
+}
+
+#about-para {
+    padding: 10px;
+    width: 70%;
+    text-align: justify;
+    color: whitesmoke;
+    line-height: 28px;
+    font-size: 1.1rem;
+    margin: auto;
+    margin-top: 9rem;
+}
+
+.inner a:hover {
+    color: blue;
+}
+
+button:hover,
+a:hover {
+    opacity: 0.7;
+}
+
+.back1 {
+    background-color: black;
+    /* background-image: url('../image/home1.jpg'); */
+}
+
+.back2 {
+    background-color: black;
+    /* background-image: url('../image/home2.jpg'); */
+}
+
+.back3 {
+    background-color: black;
+    /* background-image: url('../image/home3.jpg'); */
+}
+
+.back4 {
+    /* background-image: url('../image/home4.jpg');
+     */
+    background-color: black;
+}
+
+body {
+    background-color: black;
+}
+
+.profile {
+    border: 1px solid white;
+    display: block;
+    outline: 1px solid white;
+    outline-offset: -10px;
+    width: 300px;
+    height: 400px;
+    overflow: hidden;
+    position: relative;
+}
+
+.img-bg {
+    top: 0;
+    position: absolute;
+    width: 300px;
+    height: 400px;
+    padding: 25px;
+    z-index: 1;
+    transition: background-color 0.6s;
+
+
+}
+
+.img-bg:hover {
+    background-color: rgba(0, 0, 0, 0.31);
+}
+
+
+
+.photo1 {
+    width: 250px;
+    height: 350px;
+    padding: 25px;
+    z-index: -1;
+}
+
+.info {
+    z-index: 2;
+    /* font-size: 5px; */
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+    margin-left: -280px;
+    padding-top: 333px;
+    padding-left: 35px;
+    vertical-align: baseline;
+}
+
+
+.profile-anim {
+    animation: movename 1s linear forwards;
+}
+
+@keyframes movename {
+
+    100% {
+        padding-top: 100px;
+    }
+}
+
+.profile-anim-reverse {
+    animation: movenamereverse 0.8s linear reverse forwards;
+}
+
+@keyframes movenamereverse {
+
+    100% {
+        padding-top: 100px;
+    }
 }
