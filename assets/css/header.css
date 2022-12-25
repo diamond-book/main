@@ -45,6 +45,8 @@ nav {
   letter-spacing: 0.1rem;
 }
 
+
+
 .nav-links li a::after {
   content: "";
   background: #ff3d00;
@@ -63,6 +65,12 @@ nav {
 .nav-links li a:active::after {
   width: 100%;
 }
+
+
+.nav-links li a:focus::after, a:visited::after, a:hover{
+  width: 100%;
+}
+
 
 .signup-btn {
   background: #ff3d00;
