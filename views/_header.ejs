@@ -46,10 +46,10 @@
 <body>
     <div class="header">
         <nav>
-            <div class="logo"><img src="../image/diamondlogo.png" alt="">
-                <h1 style=" float: right; display: inline; ">DIAMOND BOOK</h1>
+            <div class="logo">
+                <img src="../image/diamondlogo.png" alt="">
+                <h1 style=" float: left; display: inline; ">DIAMOND BOOK</h1>
             </div>
-
             <ul class="nav-links">
                 <li>
                     <a href="/" id="nav-links-home">
@@ -91,38 +91,33 @@
                     <li>
                         <a href="/user/sign-out">Sign Out</a>
                     </li>
-                    <li >
+                    <li>
                         <a href="/user/profile">
                             <%= user.name %>
                         </a>
                     </li>
-                <% } else { %>
-                    <li>
-                        <button id="signup-btn" class="signup-btn">
-                            Sign up
-                            <% for(var i=0; i<23; i++){ %>
-                                <span class="popups"></span>
-                            <% } %>
-                        </button>
-    
-                    </li>
-                    <li>
-                        <button id="signin-btn" class="signup-btn" onclick="window.location.href='/user/sign-in'">
-                            Sign in
-                            <% for(var i=0; i<23; i++){ %>
-                                <span class="popups"></span>
-                            <% } %>
-                        </button>
-    
-                    </li>
-                <% } %>
-                
+                    <% } else { %>
+                        <li>
+                            <button id="signup-btn" class="signup-btn">
+                                Sign up
+                                <% for(var i=0; i<23; i++){ %>
+                                    <span class="popups"></span>
+                                    <% } %>
+                            </button>
+
+                        </li>
+                        <li>
+                            <button id="signin-btn" class="signup-btn" onclick="window.location.href='/user/sign-in'">
+                                Sign in
+                                <% for(var i=0; i<23; i++){ %>
+                                    <span class="popups"></span>
+                                    <% } %>
+                            </button>
+
+                        </li>
+                        <% } %>
             </ul>
         </nav>
     </div>
-
+    <script src="../javascript/header.js"></script>
 </body>
-
-<script src="../javascript/header.js"></script>
-
-

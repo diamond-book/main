@@ -1,7 +1,10 @@
+<link rel="stylesheet" href="/css/user_profile.css">
 
-
-<h1>profile page</h1>
-<p>Name: <%= user.name %> </p>
-<p>Email: <%= user.email %> </p>
-
-<h1><a href="/user/destroy/?id=<%=user.id%>">Delete your account</a></h1>
+<h1>Profile Page</h1>
+<div id="container">
+    <p id="name">Name: <%= user.name %>
+    </p>
+    <p id="email">Email: <%= user.email %>
+    </p>
+    <h1 id="link"><a id="link2" href="/user/destroy/?id=<%=user.id%>">Delete your account</a></h1>
+</div>
