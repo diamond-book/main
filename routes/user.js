@@ -13,6 +13,7 @@ router.get('/sign-out',usercontroller.destroySession);
 router.get('/destroy',usercontroller.destroy);
 
 router.post('/create',usercontroller.create);
+router.post('/update',usercontroller.update);
 // router.post('/create-session',usercontroller.createSession);
 
 // use passport as a middleware to authenticate
