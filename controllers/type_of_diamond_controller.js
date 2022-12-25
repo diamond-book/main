@@ -40,7 +40,27 @@ module.exports.diamondEntries = function (req, res) {
             });
         });
     });
+}
 
+module.exports.destroy = function (req, res) {
 
+    const id = url.parse(req.url, true).query.id;
 
+    TypeOfDiamond.findById(id, function (err, typeOfDiamond) {
+
+        if (typeOfDiamond.user == req.user.id) {
+            typeOfDiamond.remove();
+
+            Entry.deleteMany({ typeOfDiamond : id }, function (err) {
+                // return res.redirect('/');
+            });
+
+            Employee.deleteMany({ typeOfDiamond : id }, function (err) {
+                return res.redirect('/');
+            });
+        }
+        else {
+            return res.redirect('back');
+        }
+    });
 }

@@ -7,6 +7,7 @@ const employeecontroller = require('../controllers/employees_controller');
 
 router.post('/create',employeecontroller.create);
 router.get('/',employeecontroller.employeeEntry);
+router.get('/destroy',employeecontroller.destroy);
 
 
 
