@@ -63,3 +63,10 @@ module.exports.destroy = function (req, res) {
         }
     });
 }
+
+module.exports.update = function (req, res) {
+    const id = url.parse(req.url, true).query.id;
+    Employee.findByIdAndUpdate(id, req.body, function (err, typeOfDiamond) {
+        return res.redirect('back');
+    });
+}

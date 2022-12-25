@@ -2,6 +2,7 @@ const Employee = require('../models/employee');
 const TypeOfDiamond = require('../models/typesOfDiamonds');
 const url = require('url');
 const Entry = require('../models/entry');
+const { localsName } = require('ejs');
 
 module.exports.create = function (req, res) {
     TypeOfDiamond.create({
@@ -23,21 +24,21 @@ module.exports.diamondEntries = function (req, res) {
         });
     }
 
-    const id = url.parse(req.url,true).query.id;
+    const id = url.parse(req.url, true).query.id;
 
-    TypeOfDiamond.findById(id, function(err, typeOfDiamond){
-        Employee.find({user : req.user.id, typeOfDiamond : id}, function(err, employees){
+    TypeOfDiamond.findById(id, function (err, typeOfDiamond) {
+        Employee.find({ user: req.user.id, typeOfDiamond: id }, function (err, employees) {
             Entry.
-            find({typeOfDiamond : id}).
-            populate('employee').
-            exec(function(err, entries){
-                return res.render('diamonds_entries',{
-                    title : 'Diamonds Book | Diamond | Entries',
-                    typeOfDiamond : typeOfDiamond,
-                    employees : employees,
-                    entries : entries
+                find({ typeOfDiamond: id }).
+                populate('employee').
+                exec(function (err, entries) {
+                    return res.render('diamonds_entries', {
+                        title: 'Diamonds Book | Diamond | Entries',
+                        typeOfDiamond: typeOfDiamond,
+                        employees: employees,
+                        entries: entries
+                    });
                 });
-            });
         });
     });
 }
@@ -51,16 +52,24 @@ module.exports.destroy = function (req, res) {
         if (typeOfDiamond.user == req.user.id) {
             typeOfDiamond.remove();
 
-            Entry.deleteMany({ typeOfDiamond : id }, function (err) {
+            Entry.deleteMany({ typeOfDiamond: id }, function (err) {
                 // return res.redirect('/');
             });
 
-            Employee.deleteMany({ typeOfDiamond : id }, function (err) {
+            Employee.deleteMany({ typeOfDiamond: id }, function (err) {
                 return res.redirect('/');
             });
         }
         else {
             return res.redirect('back');
         }
+    });
+}
+
+module.exports.update = function (req, res) {
+    const id = url.parse(req.url, true).query.id;
+    
+    TypeOfDiamond.findByIdAndUpdate(id, req.body, function (err, typeOfDiamond) {
+        return res.redirect('back');
     });
 }
