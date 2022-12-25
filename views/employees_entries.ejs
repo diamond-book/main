@@ -8,15 +8,29 @@
     <h1>Mobile No : <%= employees.mobileNo %> </h1>
     <h1>Type Of Diamond : <%= typeOfDiamond.typeOfDiamond %> </h1>
     <h1>Address : <%= employees.address %> </h1>
-    <br>
-    <br>
-    <br>
+    <h1><a href="/employee/destroy/?id=<%= employees.id%>">Delete employee</a></h1>
+    
+    <h1>total Diamonds : <%=total%></h1>
+    <h1>total completed Diamonds : <%=completed%></h1>
+    <h1>salary : <%=completed*typeOfDiamond.price%></h1>
     <h1>Entries : </h1>
 
     <div>
-        <table style="border : 1px solid black">
+        <table border="1">
+            <tr>
+                <th>Sr No.</th>
+                <th>Given diamonds</th>
+                <th>Time</th>
+                <th>status</th>
+                <th></th>
+            </tr>
+            <% var i=1 %>
             <% for(entry of entries){ %>
-                <tr style="display: flex; justify-content:space-between">
+                <tr >
+                    <td>
+                        <%=i%>
+                        <% i++; %>
+                    </td>
                         <td style="margin-left: 10px;">
                             <%= entry.noOfDiamonds %>
                             <% total += entry.noOfDiamonds; %>
@@ -30,12 +44,10 @@
                                 completed += entry.noOfDiamonds;
                             } %>
                         </td>
+                        <td><a href="/entry/destroy/?id=<%= entry.id %>">Delete</a></td>
                 </tr>
             <% } %>
         </table>
-        <h1>total Diamonds : <%=total%></h1>
-        <h1>total completed Diamonds : <%=completed%></h1>
-        <h1>salary : <%=completed*typeOfDiamond.price%></h1>
     </div>
 
 
