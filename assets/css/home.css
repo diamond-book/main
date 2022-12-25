@@ -1,5 +1,17 @@
 .slide-container{
-    background-color: aqua;
+    background-color: #2b6262;
     width: 100vw !important;
     height: 79vh;
+}
+.back1{
+    background-image: url('../image/home1.jpg');
+}
+.back2{
+    background-image: url('../image/home2.jpg');
+}
+.back3{
+    background-image: url('../image/home3.jpg');
+}
+.back4{
+    background-image: url('../image/home4.jpg');
 }
