@@ -18,8 +18,15 @@ nav {
   justify-content: space-between;
 }
 
+.list-container {
+  width: 80%;
+  margin-left: 15rem;
+}
+
 .logo {
-  width: 140px;
+  float: left;
+  width: 20%;
+  min-width: 20px;
   display: inline-flex;
   padding-top: 2%;
 }
@@ -35,7 +42,7 @@ nav {
 
 .nav-links li {
   display: inline-block;
-  margin: 0 15px;
+  margin: 0 0.3rem;
 }
 
 .nav-links li a {
@@ -43,7 +50,7 @@ nav {
   color: #fff;
   padding: 5px 0;
   position: relative;
-  letter-spacing: 0.1rem;
+  letter-spacing: 0.05rem;
 }
 
 .nav-links li a::after {
@@ -65,7 +72,9 @@ nav {
   width: 100%;
 }
 
-.nav-links li a:focus::after, a:visited::after, a:hover{
+.nav-links li a:focus::after,
+a:visited::after,
+a:hover {
   width: 100%;
 }
 
@@ -299,4 +308,28 @@ a span:nth-child(7) {
   100% {
     top: -10px;
   }
+}
+
+/*------------------------------------ media query---------------------------------------- */
+
+@media only screen and (max-width: 618px) {
+
+  .nav-links li {
+    display: block;
+  }
+
+  .nav-links {
+    margin-left: 1rem;
+  }
+
+  .nav-links li a {
+    letter-spacing: 0;
+    font-size: 0.9rem;
+  }
+
+  .logo img {
+    display: block;
+  }
+
+  .logo h1 {}
 }
