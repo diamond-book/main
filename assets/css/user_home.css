@@ -251,6 +251,7 @@ textarea.addemploye-Input{
 
 .add-Employe table td{
  text-align: left;
+ padding: 2px;
 }
 
 .add-Employe table td:nth-child(2){
