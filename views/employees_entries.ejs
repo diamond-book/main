@@ -14,9 +14,9 @@
                     <h1>Employee Info.</h1>
                     <div class="employee-information">
                         <img src="../image/dummy-profile-pic.png" alt="" class="employee-image">
-                        <button class="pencil-icon-for-edit-employee-info"
-                            onclick="window.location.href = '/employee/destroy/?id=<%=employees.id%>'">&#9998;</button>
-                        <button class="delete-icon-btn-employee-info"><i class="fa-regular fa-trash-can"></i>
+                        <button class="pencil-icon-for-edit-employee-info" 
+                             >&#9998;</button>
+                        <button class="delete-icon-btn-employee-info" style="top: 14%;" onclick="window.location.href = '/employee/destroy/?id=<%=employees.id%>'" ><i class="fa-regular fa-trash-can"></i>
                         </button>
                         <div class="employee-details">
 
@@ -56,27 +56,7 @@
                                         <%= employees.address %>
                                     </td>
                                 </tr>
-                                <tr>
-                                    <td>Total Given Diamonds</td>
-                                    <td>:</td>
-                                    <td>
-                                        <%=total%>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>Total Completed Diamonds</td>
-                                    <td>:</td>
-                                    <td>
-                                        <%=completed%>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>salary</td>
-                                    <td>:</td>
-                                    <td>
-                                        <%=completed*typeOfDiamond.price%>
-                                    </td>
-                                </tr>
+                                
                             </table>
 
                         </div>
@@ -123,7 +103,7 @@
                                                     <% if(entry.status){ %>
                                                         <option value="1" id="" selected>completed</option>
                                                         <option value="0">uncompleted</option>
-                                                        <%completed +=entry.noOfDiamonds; } else { %>
+                                                        <%completed += entry.noOfDiamonds; } else { %>
                                                             <option value="0" selected>uncompleted</option>
                                                             <option value="1" id="">completed</option>
                                                             <% } %>
@@ -147,6 +127,29 @@
                                         </td>
                                     </tr>
                                     <% } %>
+                        </table>
+                        <table>
+                            <tr>
+                                <td>Total Given Diamonds</td>
+                                <td>:</td>
+                                <td>
+                                    <%=total%>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Total Completed Diamonds</td>
+                                <td>:</td>
+                                <td>
+                                    <%=completed%>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>salary</td>
+                                <td>:</td>
+                                <td>
+                                    <%=completed*typeOfDiamond.price%>
+                                </td>
+                            </tr>
                         </table>
                     </div>
 
@@ -243,7 +246,7 @@
         <!----------------------------------update employee--------------------------------------------------------------->
 
         <div class="add-Entry-of-diamond-type edit-pop-up-employee edit-Employe-info" id="edit-Employe-info">
-            <span class="close-add-Entry-of-diamond-type close-edit-employe"><i class="fa-sharp fa-solid fa-xmark"
+            <span class="close-add-Entry-of-diamond-type close-edit-employe" ><i class="fa-sharp fa-solid fa-xmark"
                     style="font-size: 22px;"></i></span>
 
             <form action="/employee/update/?id=<%= employees.id%>" method="post" class="add-dimond-type-form">
@@ -281,7 +284,7 @@
 
                 <div class="add-dimond-of-emplyee-type-buttons ">
                     <button type="reset">Clear</button>
-                    <button type="submit" onclick="validationFun()" edit-empolye-info-submit-button">ADD</button>
+                    <button type="submit" onclick="validationFun()" id="edit-empolye-info-submit-button">ADD</button>
 
                 </div>
 
