@@ -23,10 +23,10 @@
 
     })
 
-    editEmpolyeInfoSubmitButton.onclick = function () {
+    editEmpolyeInfoSubmitButton.addEventListener("click",function () {
         editEmployeInfo.style.display = "none";
         document.getElementById("body").style.filter = "blur(0px)"
-    }
+    });
 
     closeEditEmploye.addEventListener("click", function () {
         editEmployeInfo.style.display = "none";
