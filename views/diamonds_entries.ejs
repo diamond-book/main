@@ -1,6 +1,3 @@
-
-
-
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" />
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
 <link rel="stylesheet" href="../css/diamonds_entry.css">
@@ -64,7 +61,7 @@
                         <td>___</td>
                     </tr>
 
-<!-----------------------------ENTRY LOOP--------------------------------------------------------------------------------->
+                    <!-----------------------------ENTRY LOOP--------------------------------------------------------------------------------->
                     <% var i=1; %>
                         <% for(entry of entries){ %>
                             <tr>
@@ -91,10 +88,10 @@
                                                 <% if(entry.status){ %>
                                                     <option value="1" id="" selected>completed</option>
                                                     <option value="0">uncompleted</option>
-                                                <%completed +=entry.noOfDiamonds; } else { %>    
-                                                    <option value="0" selected>uncompleted</option>
-                                                    <option value="1" id="">completed</option>
-                                                <% } %>
+                                                    <%completed +=entry.noOfDiamonds; } else { %>
+                                                        <option value="0" selected>uncompleted</option>
+                                                        <option value="1" id="">completed</option>
+                                                        <% } %>
                                         </select>
                                     </div>
                                 </td>
@@ -104,11 +101,14 @@
                                 </td>
                                 <td>
                                     <input type="hidden" value="<%=entry.id%>" name="id" class="entryId">
-                                    <button class="pencil-icon-btn" onclick="setId('<%=entry.id%>' , '<%=entry.noOfDiamonds%>' , '<%= entry.status %>')">&#9998;</button></td>
+                                    <button class="pencil-icon-btn"
+                                        onclick="setId('<%=entry.id%>' , '<%=entry.noOfDiamonds%>' , '<%= entry.status %>')">&#9998;</button>
+                                </td>
 
                                 <td>
                                     <button class="delete-icon-btn">
-                                        <a href="/entry/destroy/?id=<%= entry.id%>"><i class="fa-regular fa-trash-can" style="color: white;"></i></a>
+                                        <a href="/entry/destroy/?id=<%= entry.id%>"><i class="fa-regular fa-trash-can"
+                                                style="color: white;"></i></a>
                                     </button>
 
                                 </td>
@@ -118,7 +118,7 @@
                 </table>
             </div>
         </div>
-<!------------------CREATE ENTRY----------------------------------------------------------------------------------------------------->
+        <!------------------CREATE ENTRY----------------------------------------------------------------------------------------------------->
         <div class="add-Entry-of-employe-for-selected-dimond-type" id="add-Entry-of-employe-for-selected-dimond-type">
             <span class="close-addemploye-for-selected-diamond-type"><i class="fa-sharp fa-solid fa-xmark"
                     style="font-size: 22px"></i></span>
@@ -144,7 +144,7 @@
                         </td>
                         <td>:</td>
                         <td>
-                            <select name="status" id="select-status-for-selected-dimond-type" >
+                            <select name="status" id="select-status-for-selected-dimond-type">
                                 <option value="0">uncompleted</option>
                                 <option value="1">completed</option>
                             </select>
@@ -170,14 +170,15 @@
 
                 <div class="addemplye-for-selected-diond-type-buttons">
                     <button type="reset">Clear</button>
-                    <button type="submit" id="addempolye-for-selected-diond-type-submit-button" class="">
+                    <button type="submit" onclick="phoneValidationFun()" class="phone-validation"
+                        id="addempolye-for-selected-diond-type-submit-button" class="">
                         ADD
                     </button>
                 </div>
             </form>
         </div>
 
-<!-- ---------------------------UPDATE ENTRY FORM--------------------------------------------------------------------------------------------->
+        <!-- ---------------------------UPDATE ENTRY FORM--------------------------------------------------------------------------------------------->
 
         <div class="add-Entry-of-employe-for-selected-dimond-type pop-up-edit" id="pop-up-edit">
             <span class="close-addemploye-for-selected-diamond-type pop-up-close"><i class="fa-sharp fa-solid fa-xmark"
@@ -221,7 +222,7 @@
             </form>
         </div>
 
-<!-- ------Upadate diamond form---------------------------------------------------------------------------------------------------- -->
+        <!-- ------Upadate diamond form---------------------------------------------------------------------------------------------------- -->
 
         <div class="add-Entry-of-employe-for-selected-dimond-type edit-diomond-type-price" id="edit-dimond-type-price">
             <span class="close-addemploye-for-selected-diamond-type edit-diamond-pop-up-close"><i
@@ -260,13 +261,17 @@
 
                 <div class="addemplye-for-selected-diond-type-buttons">
                     <button type="reset">Reset</button>
-                    <button type="submit" id="edit-diamond-type-price-button-pop-up-submit-button" class="">
+                    <button type="submit" onclick="validationFun()"
+                        id="edit-diamond-type-price-button-pop-up-submit-button" class="">
                         Update
                     </button>
                 </div>
             </form>
         </div>
         <script src="../javascript/diamonds_entry.js"></script>
+        <script src="../javascript/validation.js"></script>
+
+
 </body>
 
 

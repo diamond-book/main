@@ -1,5 +1,4 @@
-
-<link rel="stylesheet" href="../css/user_sign_up.css"> 
+<link rel="stylesheet" href="../css/user_sign_up.css">
 
 <body>
     <div class="bg">
@@ -24,19 +23,19 @@
 
                 <label for="signuppass" id="signuppass-label">Password</label>
                 <br>
-                
+
                 <input type="password" name="password" id="signuppass" placeholder="Password">
                 <br>
                 <label for="signuppass" id="signuppass-label">Confirm Password</label>
                 <br>
-                
+
                 <input type="password" name="confirm_password" placeholder="Confirm Password">
                 <br>
                 <br><br>
                 <div class="signup-btns" id="signup-btns">
                     <button type="reset">Cancel</button>
 
-                    <button type="submit" name="sign up" id="signup-submit">signup
+                    <button type="submit" onclick="validationFun()" name="sign up" id="signup-submit">signup
                         <span></span>
                         <span class="signup-submit-span"></span>
                         <span class="signup-submit-span"></span>
@@ -67,4 +66,6 @@
         </div>
     </div>
     <script src="../javascript/header.js"></script>
+    <script src="../javascript/validation.js"></script>
+
 </body>

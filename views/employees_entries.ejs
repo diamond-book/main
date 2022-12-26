@@ -1,6 +1,6 @@
 <link rel="stylesheet" href="../css/employee_entries.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
 
 <!-------new body------------------------------------------------------------------------------------------------------------------------>
 
@@ -14,7 +14,8 @@
                     <h1>Employee Info.</h1>
                     <div class="employee-information">
                         <img src="../image/dummy-profile-pic.png" alt="" class="employee-image">
-                        <button class="pencil-icon-for-edit-employee-info" onclick="window.location.href = '/employee/destroy/?id=<%=employees.id%>'">&#9998;</button>
+                        <button class="pencil-icon-for-edit-employee-info"
+                            onclick="window.location.href = '/employee/destroy/?id=<%=employees.id%>'">&#9998;</button>
                         <button class="delete-icon-btn-employee-info"><i class="fa-regular fa-trash-can"></i>
                         </button>
                         <div class="employee-details">
@@ -102,7 +103,7 @@
                                 <td>___</td>
                                 <td>___</td>
                             </tr>
-<!-----------------Entry display Loop--------------------------------------------------------------------------------------------->
+                            <!-----------------Entry display Loop--------------------------------------------------------------------------------------------->
                             <% var i=1 %>
                                 <% for(entry of entries){ %>
                                     <tr>
@@ -122,10 +123,10 @@
                                                     <% if(entry.status){ %>
                                                         <option value="1" id="" selected>completed</option>
                                                         <option value="0">uncompleted</option>
-                                                    <%completed +=entry.noOfDiamonds; } else { %>
-                                                        <option value="0" selected>uncompleted</option>
-                                                        <option value="1" id="">completed</option>
-                                                    <% } %>
+                                                        <%completed +=entry.noOfDiamonds; } else { %>
+                                                            <option value="0" selected>uncompleted</option>
+                                                            <option value="1" id="">completed</option>
+                                                            <% } %>
 
                                                 </select>
                                             </div>
@@ -134,15 +135,18 @@
                                         <td>
                                             <button class="save-btn-employee" disabled>Save</button>
                                         </td>
-                                        <td><button class="pencil-icon-btn-employee" onclick="setId('<%=entry.id%>' , '<%=entry.noOfDiamonds%>' , '<%= entry.status %>')">&#9998;</button></td>
+                                        <td><button class="pencil-icon-btn-employee"
+                                                onclick="setId('<%=entry.id%>' , '<%=entry.noOfDiamonds%>' , '<%= entry.status %>')">&#9998;</button>
+                                        </td>
 
                                         <td>
-                                            <button class="delete-icon-btn-employee" onclick="window.location.href='/entry/destroy/?id=<%= entry.id %>'">
+                                            <button class="delete-icon-btn-employee"
+                                                onclick="window.location.href='/entry/destroy/?id=<%= entry.id %>'">
                                                 <i class="fa-regular fa-trash-can"></i>
                                             </button>
                                         </td>
                                     </tr>
-                            <% } %>
+                                    <% } %>
                         </table>
                     </div>
 
@@ -162,10 +166,11 @@
                     <tr>
                         <td><label for="add-dimond-type-form-Input">&diams; Enter No. of Diamonds</label></td>
                         <td>:</td>
-                        <td><input type="number" name="noOfDiamonds" id="add-dimond-type-form-Input" class="add-dimond-type-form-Input"
-                                required>
+                        <td><input type="number" name="noOfDiamonds" id="add-dimond-type-form-Input"
+                                class="add-dimond-type-form-Input" required>
                             <input type="hidden" name="typeOfDiamond" value="<%= typeOfDiamond._id%>" required>
-                            <input type="hidden" name="employee" value="<%= employees._id %>" required></td>
+                            <input type="hidden" name="employee" value="<%= employees._id %>" required>
+                        </td>
                     </tr>
 
 
@@ -201,13 +206,13 @@
             <span class="close-add-Entry-of-diamond-type edit-employee-pop-up-close"><i
                     class="fa-sharp fa-solid fa-xmark" style="font-size: 22px;"></i></span>
 
-            <form method="post" id="entry-update-form"  class="add-dimond-type-form">
+            <form method="post" id="entry-update-form" class="add-dimond-type-form">
                 <table>
                     <tr>
                         <td><label for="add-no-of-diamond-edit">&diams; Enter No. of Diamonds</label></td>
                         <td>:</td>
-                        <td><input type="number" name="noOfDiamonds" id="add-no-of-diamond-edit" class="add-dimond-type-form-Input"
-                                required></td>
+                        <td><input type="number" name="noOfDiamonds" id="add-no-of-diamond-edit"
+                                class="add-dimond-type-form-Input" required></td>
                     </tr>
 
 
@@ -216,7 +221,7 @@
                         <td>:</td>
                         <td>
 
-                            <select  name="status" id="selected-entry-status">
+                            <select name="status" id="selected-entry-status">
                                 <option value="0">uncompleted</option>
                                 <option value="1">completed</option>
                             </select>
@@ -246,18 +251,21 @@
                     <tr>
                         <td><label for="edit-employe-name-Input">&diams; Employee Name</label></td>
                         <td>:</td>
-                        <td><input type="text" name="name" value="<%= employees.name %>" id="edit-employe-name-Input" class="edit-employe-Input" required></td>
+                        <td><input type="text" name="name" value="<%= employees.name %>" id="edit-employe-name-Input"
+                                class="edit-employe-Input" required></td>
                     </tr>
                     <tr>
                         <td><label for="edit-employe-adhar-Input">&diams; Enter Aadhar Number</label></td>
                         <td>:</td>
-                        <td><input type="number" name="aadharNo" value="<%= employees.aadharNo %>" id="edit-employe-adhar-Input" class="edit-employe-Input" required></td>
+                        <td><input type="number" name="aadharNo" value="<%= employees.aadharNo %>"
+                                id="edit-employe-adhar-Input" class="edit-employe-Input" required></td>
                     </tr>
 
                     <tr>
                         <td> <label for="edit-employe-mobileno-Input">&diams; Enter Mobile Number</label></td>
                         <td>:</td>
-                        <td><input type="number" name="mobileNo" value="<%= employees.mobileNo %>" id="edit-employe-mobileno-Input" class="edit-employe-Input" required>
+                        <td><input type="number" name="mobileNo" value="<%= employees.mobileNo %>"
+                                id="edit-employe-mobileno-Input" class="edit-employe-Input" required>
                         </td>
                     </tr>
 
@@ -273,7 +281,7 @@
 
                 <div class="add-dimond-of-emplyee-type-buttons ">
                     <button type="reset">Clear</button>
-                    <button type="submit" id="edit-empolye-info-submit-button">ADD</button>
+                    <button type="submit" onclick="validationFun()" edit-empolye-info-submit-button">ADD</button>
 
                 </div>
 
@@ -282,4 +290,6 @@
         </div>
 
         <script src="../javascript/employee_entries.js"></script>
+        <script src="../javascript/validation.js"></script>
+
 </body>
