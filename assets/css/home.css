@@ -1,3 +1,6 @@
+*{   
+    font-family:  Goudy Old Style,Garamond,Big Caslon,Times New Roman,serif;
+}
 .slide-container {
     background-color: #2b6262;
     width: 100vw !important;
