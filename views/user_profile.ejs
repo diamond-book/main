@@ -8,8 +8,8 @@
     </p>
     <h1 id="link"><a id="link2" href="/user/destroy/?id=<%=user.id%>">Delete your account</a></h1>
     <form action="/user/update/?id=<%=user.id%>" method="post">
-    <input type="text" name="name" value="<%= user.name %>">
-    <input type="email" name="email" value="<%= user.email %>">
-    <input type="submit" value="Update">
-</form>
+        <input type="text" name="name" value="<%= user.name %>">
+        <input type="email" name="email" value="<%= user.email %>">
+        <input type="submit" onclick="validationFun()" value="Update">
+    </form>
 </div>
