@@ -92,10 +92,12 @@
                                                 <% i++; %>
                                         </td>
                                         <td class="employes-selected-diamond-table-ename"><a href="">
-                                                <%= entry.noOfDiamonds %>
-                                                    <% total +=entry.noOfDiamonds; %>
+                                                <%= entry.noOfDiamonds %> 
+                                                    <% total += entry.noOfDiamonds; %>
                                             </a> </td>
-                                        <td class="employe-taking-time-of-diamonds"></td>
+                                        <td class="employe-taking-time-of-diamonds">
+                                            <%= entry.createdAt%>
+                                        </td>
                                         <td class="">
                                             <div class="select-options-status-employee">
                                                 <select name="" id="" class="select-status-employee"
@@ -127,31 +129,33 @@
                                     </tr>
                                     <% } %>
                         </table>
-                        <table>
-                            <tr>
-                                <td>Total Given Diamonds</td>
-                                <td>:</td>
-                                <td>
-                                    <%=total%>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Total Completed Diamonds</td>
-                                <td>:</td>
-                                <td>
-                                    <%=completed%>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>salary</td>
-                                <td>:</td>
-                                <td>
-                                    <%=completed*typeOfDiamond.price%>
-                                </td>
-                            </tr>
-                        </table>
                     </div>
-
+                    
+                </div>
+                <div class="employee-full-info">
+                    <table>
+                        <tr>
+                            <td>Total Given Diamonds</td>
+                            <td>:</td>
+                            <td>
+                                <%=total%>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Total Completed Diamonds</td>
+                            <td>:</td>
+                            <td>
+                                <%=completed%>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>salary</td>
+                            <td>:</td>
+                            <td>
+                                <%=completed*typeOfDiamond.price%>
+                            </td>
+                        </tr>
+                    </table>
                 </div>
 
             </div>
